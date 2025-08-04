@@ -5,7 +5,19 @@
 
 ### Portfolio tecnico como freelance DevOps especializado en automatización de infraestructura con Terraform, Ansible y despliegue en Azure.
 -------------------------------------------------------
+## 🎯 ¿Por qué ofrezco estos servicios?
 
+No frezco automatización, infraestructura y despliegues porque estén "de moda".
+
+Lo hago porque **sé lo que cuesta trabajar con entornos mal configurados, sin control, sin documentar y sin seguridad**.
+
+Mi objetivo es ayudarte a tener sistemas bien organizados, reproducibles y automatizados, que puedas entender, mantener y escalar sin depender de nadie.
+
+Creo en el trabajo bien hecho, documentado y transparente.
+Por eso combino herramientas como Terraform, Ansible y Github Actions, y me involucro en cada proyecto de manera seria y activa.
+
+🚀*Menos improvisación. Más control. Más tiempo para lo importante*.
+----------------------------------------------------------------------------
 ## *1º🧰 Tabla de servicios estandar*
 
 | Servicio                          | Descripción breve                                               | Desde (€) |
