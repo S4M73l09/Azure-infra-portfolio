@@ -1,5 +1,5 @@
 # Azure-infra-portfolio  
-📘 Este portafolio también está disponible en [español](.README.md)
+📘 Este portafolio también está disponible en [español](README.md)
 
 Technical portfolio as a freelance DevOps specialist focused on **infrastructure automation** using Terraform, Ansible, and Azure deployments.
 
@@ -16,23 +16,23 @@ My goal is to help you build well-organized, reproducible, and automated systems
 I believe in clean, well-documented, and transparent work.  
 That’s why I combine tools like **Terraform**, **Ansible**, and **GitHub Actions**, and I get involved in every project seriously and actively.
 
-🚀 Less improvisation. More control. More time for what really matters.
+## 🚀 Less improvisation. More control. More time for what really matters.
 
 ---
 
 ## 🧰 Standard service list
 
-| Service                        | Short description                                                  | From (€)    |
-|-------------------------------|---------------------------------------------------------------------|-------------|
-| Terraform on Azure            | Reproducible infrastructure: VMs, networks, Key Vaults, etc.       | 450 €       |
-| Terraform (VM only)           | Deployment of a single virtual machine (no dependencies)           | 250 €       |
-| Ansible                       | Server automation and configuration                                | 300 €       |
-| CI/CD with GitHub Actions     | Testing and deployment workflows                                   | 350 €       |
-| VPN Integration               | Secure connectivity between local and cloud environments           | 300 €       |
-| Windows Server Configuration  | Active Directory, users, groups, and permissions                   | 200 €       |
-| Linux Configuration (LDAP)    | LDAP-based configuration for Linux environments                    | 200 €       |
-| Monitoring (Grafana/Prometheus) | Dashboards, metrics, and alerting                                 | 300 €       |
-| Monthly remote maintenance    | Ongoing support and technical tasks (2–8 h/month)                  | 100–300 €   |
+  | Service                         | Short description                                                  | From (€)    |
+  |---------------------------------|--------------------------------------------------------------------|-------------|
+  | Terraform on Azure              | Reproducible infrastructure: VMs, networks, Key Vaults, etc.       | 450 €       |
+  | Terraform (VM only)             | Deployment of a single virtual machine (no dependencies)           | 250 €       |
+  | Ansible                         | Server automation and configuration                                | 300 €       |
+  | CI/CD with GitHub Actions       | Testing and deployment workflows                                   | 350 €       |
+  | VPN Integration                 | Secure connectivity between local and cloud environments           | 300 €       |
+  | Windows Server Configuration    | Active Directory, users, groups, and permissions                   | 200 €       |
+  | Linux Configuration (LDAP)      | LDAP-based configuration for Linux environments                    | 200 €       |
+  | Monitoring (Grafana/Prometheus) | Dashboards, metrics, and alerting                                  | 300 €       |
+  | Monthly remote maintenance      | Ongoing support and technical tasks (2–8 h/month)                  | 100–300 €   |
 
 📌 *Prices are indicative and may vary based on project scope, urgency, or customization level.*
 
@@ -80,10 +80,10 @@ To offer even more flexibility:
 
 Feel free to reach out to request a quote or talk about your project:
 
-📧 Email: [yournamefreelance@gmail.com](mailto:yournamefreelance@gmail.com)
+📧 Email: [Here🙋‍♂️](mailto:saminfradevops@gmail.com)
 
 Also available on:
 
-💻 [GitHub](https://github.com/yourusername)  
-🔗 [LinkedIn](https://linkedin.com/in/yourusername)
+💻 [GitHub](https://github.com/S4M73l09)  
+🔗 [LinkedIn](https://www.linkedin.com/in/samuelillobaby/)
 
