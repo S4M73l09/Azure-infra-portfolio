@@ -18,19 +18,51 @@ Por eso combino herramientas como Terraform, Ansible y Github Actions, y me invo
 
 🚀*Menos improvisación. Más control. Más tiempo para lo importante*.
 ----------------------------------------------------------------------------
-## *1º🧰 Tabla de servicios estandar*
+# *🧰 Tabla de servicios*
 
-| Servicio                          | Descripción breve                                               | Desde (€) |
-|--------------------------------   |------------------------------------------------------------------|-----------|
-| Terraform en Azure                | Despliegue de infraestructuras reproducibles: redes, VMs, etc.   | 450 €     |
-| Terraform Solo                    | Despliegue de solo Maquina Virtual                               | 250€      |
-| Ansible                           | Automatización de tareas y configuración de servidores           | 300 €     |
-| CI/CD con GitHub Actions          | Workflows para testing y despliegue automatizado                 | 350 €     |
-| Integración con VPNs              | VPNs para entornos seguros entre local y cloud                   | 300 €     |
-| Configuracion Windows Server(AD)  | Configuracion, Active directory, usuarios y permisos             | 200 €     |
-| Configuracion Linux               | Uso de LDAP a la hora de configurar Linux                        | 200 €     |
-| Monitorización (Grafana/Prom)     | Métricas, alertas y paneles para observabilidad                  | 300 €     |
-| Mantenimiento mensual remoto      | Soporte y tareas técnicas continuas (2–8 h/mes)                  | 100–300 € |
+## 1️⃣ Infraestructura como código y despliegues completos
+
+|🚀Servicio                                                        |📄Descripción breve                                            |💰Desde (€)   |⏱Tiempo estimado 
+| ---------------------------------------------------------------- | -------------------------------------------------------------- | ---------    | --------------- |
+| Terraform en Azure                                               | Despliegue de infraestructuras reproducibles: redes, VMs, etc. | 300 €        |     3-5 días    |   
+| Terraform Solo                                                   | Despliegue de solo Máquina Virtual                             | 250 €        |     1-2 días    |
+| Despliegue completo (Terraform + GitHub Actions + Ansible + VPN) | Infraestructura llave en mano, automatizada y segura           | 750 €        |     7-10 días   |
+
+## 2️⃣ Automatización con Ansible
+
+|⚙ Servicio                                       |📄 Descripción breve                                       |💰 Precio desde  |⏱ Entrega 
+| ----------------------------------------------- | ---------------------------------------------------------- | --------------- | --------- |
+| Automatización de servidores                    | Automatización de tareas y configuración de servidores     | 300 €           | 2–4 días  |
+| Rotación automática de secretos (Azure)         | Renovación periódica de credenciales para máxima seguridad | 350 €           | 2–3 días  |
+| Playbook avanzado de seguridad (VPN + Firewall) | Configuración y reglas de firewall optimizadas para VPN    | 300 €           | 2–3 días  |
+
+## 3️⃣ Redes y Seguridad
+
+|🔒 Servicio                                 |📄 Descripción breve                                    |💰 Precio desde  |⏱ Entrega 
+| ------------------------------------------ | ------------------------------------------------------- | --------------- | --------- |
+| Integración con VPNs (WireGuard / OpenVPN) | VPNs para entornos seguros entre local y cloud          | 300 €           | 2–3 días  |
+| Configuración avanzada de firewall con VPN | Restricción de tráfico y reglas personalizadas para VPN | 250 €           | 2–3 días  |
+
+
+## 4️⃣ Administracion de sistemas
+
+|🖥 Servicio                        |📄 Descripción breve                                    |💰 Precio desde  |⏱ Entrega 
+| --------------------------------- | ------------------------------------------------------ | --------------- | --------- |
+| Configuración Windows Server (AD) | Configuración, Active Directory, usuarios y permisos   | 200 €           | 1–2 días  |
+| Configuración Linux con LDAP      | Integración LDAP para gestión centralizada de usuarios | 200 €           | 1–2 días  |
+
+## 5️⃣ Monitorizacion y Observabilidad
+
+|📊 Servicio                            |📄 Descripción breve                            |💰 Precio desde  |⏱ Entrega 
+| ------------------------------------- | ----------------------------------------------- | --------------- | --------- |
+| Monitorización con Grafana/Prometheus | Métricas, alertas y paneles para observabilidad | 300 €           | 2–3 días  |
+
+## 6️⃣ Soporte y mantenimiento
+
+| 🛠 Servicio                  | 📄 Descripción breve                            | 💰 Precio desde | ⏱ Entrega     |
+| ---------------------------- | ----------------------------------------------- | --------------- | ------------- |
+| Mantenimiento mensual remoto | Soporte y tareas técnicas continuas (2–8 h/mes) | 100 – 300 €     | Según acuerdo |
+
 
 📌 Estos precios son orientativos. Se ajustan según alcance, urgencia y nivel de personalización.
 
