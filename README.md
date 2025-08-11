@@ -7,7 +7,7 @@
 -------------------------------------------------------
 ## 🎯 ¿Por qué ofrezco estos servicios?
 
-No frezco automatización, infraestructura y despliegues porque estén "de moda".
+No ofrezco automatización, infraestructura y despliegues porque estén "de moda".
 
 Lo hago porque **sé lo que cuesta trabajar con entornos mal configurados, sin control, sin documentar y sin seguridad**.
 
