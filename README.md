@@ -38,7 +38,7 @@ Por eso combino herramientas como Terraform, Ansible y Github Actions, y me invo
 
 Por supuesto, ofrezco mis servicios tambien de forma combinada.
 
-Tu eliges lo que necesites, y yo me encargo de integrarlos en uan solucion coherente, documentada y funcional.
+Tu eliges lo que necesites, y yo me encargo de integrarlos en una solucion coherente, documentada y funcional.
 
 Y para mayor flexibilidad, si combinas 3 o mas servicios, aplico automaticamente un 20% de descuento sobre el precio total
 
