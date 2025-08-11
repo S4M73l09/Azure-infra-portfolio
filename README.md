@@ -1,6 +1,7 @@
-# Azure-infra-portfolio
+[![English version](https://img.shields.io/badge/🌐%20English-blue?style=for-the-badge)](README.en.md)
+[![Versión en español](https://img.shields.io/badge/🌐%20Español-red?style=for-the-badge)](README.md)
 
-📘This portfolio is also available in [English](README.en.md)
+# Azure-infra-portfolio
 
 
 ### Portfolio tecnico como freelance DevOps especializado en automatización de infraestructura con Terraform, Ansible y despliegue en Azure.
