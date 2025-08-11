@@ -1,5 +1,5 @@
 # **Azure Infrastructure Portfolio**  
-📘 *This portfolio is also available in Spanish*  
+📘 *This portfolio is also available in [Spanish](README.md)*  
 
 Technical portfolio as a freelance **DevOps** specialist in infrastructure automation using **Terraform**, **Ansible**, and deployments on **Azure**.  
 
