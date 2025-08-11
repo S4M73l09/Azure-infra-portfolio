@@ -1,89 +1,113 @@
-# Azure-infra-portfolio  
-📘 Este portafolio también está disponible en [español](README.md)
+# **Azure Infrastructure Portfolio**  
+📘 *This portfolio is also available in Spanish*  
 
-Technical portfolio as a freelance DevOps specialist focused on **infrastructure automation** using Terraform, Ansible, and Azure deployments.
-
----
-
-## 🎯 Why do I offer these services?
-
-I don't offer automation, infrastructure, and deployment solutions just because they're “trendy.”
-
-I do it because I understand how frustrating it is to work with environments that are misconfigured, undocumented, insecure, and difficult to maintain.
-
-My goal is to help you build well-organized, reproducible, and automated systems that **you can understand, maintain, and scale without vendor lock-in**.
-
-I believe in clean, well-documented, and transparent work.  
-That’s why I combine tools like **Terraform**, **Ansible**, and **GitHub Actions**, and I get involved in every project seriously and actively.
-
-## 🚀 Less improvisation. More control. More time for what really matters.
+Technical portfolio as a freelance **DevOps** specialist in infrastructure automation using **Terraform**, **Ansible**, and deployments on **Azure**.  
 
 ---
 
-## 🧰 Standard service list
+## 🎯 **Why I offer these services**  
+I don’t provide automation, infrastructure, and deployments just because they’re “trendy.”  
 
-  | Service                         | Short description                                                  | From (€)    |
-  |---------------------------------|--------------------------------------------------------------------|-------------|
-  | Terraform on Azure              | Reproducible infrastructure: VMs, networks, Key Vaults, etc.       | 450 €       |
-  | Terraform (VM only)             | Deployment of a single virtual machine (no dependencies)           | 250 €       |
-  | Ansible                         | Server automation and configuration                                | 300 €       |
-  | CI/CD with GitHub Actions       | Testing and deployment workflows                                   | 350 €       |
-  | VPN Integration                 | Secure connectivity between local and cloud environments           | 300 €       |
-  | Windows Server Configuration    | Active Directory, users, groups, and permissions                   | 200 €       |
-  | Linux Configuration (LDAP)      | LDAP-based configuration for Linux environments                    | 200 €       |
-  | Monitoring (Grafana/Prometheus) | Dashboards, metrics, and alerting                                  | 300 €       |
-  | Monthly remote maintenance      | Ongoing support and technical tasks (2–8 h/month)                  | 100–300 €   |
+I do it because I know the cost of working with poorly configured, undocumented, and insecure environments.  
 
-📌 *Prices are indicative and may vary based on project scope, urgency, or customization level.*
+My goal is to help you have **well-organized, reproducible, and automated systems** that you can understand, maintain, and scale without depending on anyone else.  
+
+I believe in well-executed, documented, and transparent work.  
+That’s why I combine tools like **Terraform, Ansible, and GitHub Actions**, and I take a serious, hands-on approach to every project.  
+
+🚀 *Less improvisation. More control. More time for what matters.*  
 
 ---
 
-## 💼 Custom packages
+## 🧰 **Service Catalog**  
 
-Of course, I also offer combined services.
-
-You choose only what you need, and I take care of integrating everything into a **cohesive, well-documented, and functional solution**.
-
-To offer even more flexibility:  
-👉 If you combine **3 or more services**, I apply a **20% discount** on the total price.
-
-✅ That way, we both win: you save money and I make sure everything works smoothly.
+### **1️⃣ Infrastructure as Code & Full Deployments**  
+| 🚀 Service | 📄 Short Description | 💰 From (€) | 📦 Delivery |
+|------------|---------------------|-------------|-------|
+| Terraform on Azure | Deploy reproducible infrastructures: networks, VMs, etc. | 300 € | 3–5 days |
+| Terraform – VM Only | Single Virtual Machine deployment | 250 € | 1–2 days |
+| Full Deployment (Terraform + GitHub Actions + Ansible + VPN) | Turnkey, automated, and secure infrastructure | 750 € | 7–10 days |
 
 ---
 
-## 📋 Terms & Workflow
-
-✅ All services include:
-
-- 📄 **Structured technical documentation**, so you can maintain or reuse what I deliver.
-- 🛠️ **Post-delivery support** for up to **5 business days** to fix minor issues or answer questions.
-- 📞 **Free initial consultation** (15–30 minutes) to define your needs clearly, with no commitment.
-
-🕒 **Estimated delivery time:**
-
-- Typically between **3 to 7 business days**, depending on the service or package.
-- Combined packages are delivered in stages to ensure control and quality.
-- Delivery is provided via `.zip` files or secure download links (Google Drive), for safety and simplicity.
-
-💰 **Fixed pricing:**
-
-- The price is agreed **before the project starts**, based on the defined scope.
-- Any changes during the project will be evaluated transparently.
-
-🔄 **Optional monthly maintenance:**
-
-- If you don’t want to worry about updates, backups, secret rotation, etc., I offer remote maintenance plans tailored to your environment.
+### **2️⃣ Automation with Ansible**  
+| ⚙ Service | 📄 Short Description | 💰 From (€) | 📦 Delivery |
+|-----------|---------------------|-------------|-------|
+| Server Automation | Task automation and server configuration | 300 € | 2–4 days |
+| Automatic Secret Rotation (Azure) | Periodic credential renewal for maximum security | 350 € | 2–3 days |
+| Advanced Security Playbook (VPN + Firewall) | VPN configuration with optimized firewall rules | 300 € | 2–3 days |
 
 ---
 
-## 📬 Contact
+### **3️⃣ Networking & Security**  
+| 🔒 Service | 📄 Short Description | 💰 From (€) | 📦 Delivery |
+|------------|---------------------|-------------|-------|
+| VPN Integration (WireGuard / OpenVPN) | Secure VPNs between on-prem and cloud environments | 300 € | 2–3 days |
+| Advanced Firewall Configuration with VPN | Traffic restrictions and custom rules for VPNs | 250 € | 2–3 days |
 
-Feel free to reach out to request a quote or talk about your project:
+---
+
+### **4️⃣ Systems Administration**  
+| 🖥 Service | 📄 Short Description | 💰 From (€) | 📦 Delivery |
+|------------|---------------------|-------------|-------|
+| Windows Server Setup (AD) | Active Directory configuration, users, and permissions | 200 € | 1–2 days |
+| Linux Setup with LDAP | LDAP integration for centralized user management | 200 € | 1–2 days |
+
+---
+
+### **5️⃣ Monitoring & Observability**  
+| 📊 Service | 📄 Short Description | 💰 From (€) | 📦 Delivery |
+|------------|---------------------|-------------|-------|
+| Monitoring with Grafana / Prometheus | Metrics, alerts, and observability dashboards | 300 € | 2–3 days |
+
+---
+
+### **6️⃣ Support & Maintenance**  
+| 🛠 Service | 📄 Short Description | 💰 From (€) | 📦 Delivery |
+|------------|---------------------|-------------|-------|
+| Monthly Remote Maintenance | Ongoing technical support (2–8 h/month) | 100 – 300 € | As agreed |
+
+📌 *Prices are indicative and may vary depending on scope, urgency, and level of customization.*  
+
+---
+
+## 💼 **Custom Packages**  
+Of course, I can also combine services into a single, coherent solution.  
+
+You choose what you need, and I’ll integrate it into a **functional, documented, and cohesive** delivery.  
+
+💡 *If you combine 3 or more services, I automatically apply a 20% discount on the total price.*  
+
+✅ You save costs, and I ensure everything works exactly as it should.  
+
+---
+
+## 📋 **General Conditions & Workflow**  
+
+✅ **All services include:**  
+- 📄 Clear and structured technical documentation so you can reuse or maintain what I deliver.  
+- 🛠️ Post-delivery technical support for up to **5 business days** to solve minor issues, errors, or reasonable adjustments.  
+- 📞 Free initial meeting (15–30 min) to define your needs, with no commitment.  
+
+🕒 **Execution time:**  
+- Varies depending on the service or package, but generally between **3 and 7 business days per project**.  
+- Custom packages are delivered in **phases** to ensure quality and control.  
+- Deliverables are provided via **.zip files** or secure download links from my own Google Drive.  
+
+💰 **Fixed pricing:**  
+- The price is defined before starting, based on the agreed scope.  
+- Any changes are transparently evaluated.  
+
+🔄 **Optional monthly maintenance:**  
+- If you prefer a fully hands-off approach, I offer **remote technical maintenance plans** (updates, backups, secret rotation, etc.).  
+
+---
+
+💬 I’m available to discuss your project or provide a custom quote:
 
 📧 Email: [Here🙋‍♂️](mailto:saminfradevops@gmail.com)
 
-Also available on:
+💻 [GitHub](https://github.com/S4M73l09) 
 
-💻 [GitHub](https://github.com/S4M73l09)  
 🔗 [LinkedIn](https://www.linkedin.com/in/samuelillobaby/)
 
