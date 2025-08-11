@@ -1,5 +1,10 @@
+[![English version](https://img.shields.io/badge/🌐%20English-blue?style=for-the-badge)](README.en.md)
+[![Versión en español](https://img.shields.io/badge/🌐%20Español-red?style=for-the-badge)](README.md)
+
+
+
 # **Azure Infrastructure Portfolio**  
-📘 *This portfolio is also available in [Spanish](README.md)*  
+ 
 
 Technical portfolio as a freelance **DevOps** specialist in infrastructure automation using **Terraform**, **Ansible**, and deployments on **Azure**.  
 
