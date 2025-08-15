@@ -3,106 +3,76 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portfolio & Precios — ES/EN</title>
-  <meta name="description" content="Servicios DevOps: Terraform, Ansible, Docker, Azure, Grafana, Prometheus. Lista de precios y portfolio bilingüe." />
+  <title>Azure Infra Portfolio</title>
+  <meta name="description" content="Portfolio bilingüe: Terraform, Ansible, Docker, Azure, Grafana, Prometheus, WireGuard." />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{--bg:#0b0e14;--muted:#9aa4b2;--txt:#eef2f7;--shadow:0 10px 30px rgba(0,0,0,.35)}
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;background:linear-gradient(180deg,#0b0e14,#0b0e14 40%,#0f172a);color:var(--txt)}
-    .wrap{max-width:1100px;margin:0 auto;padding:40px 20px 80px}
-    header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:24px}
-    .logo{display:flex;align-items:center;gap:12px}
-    .badge{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,#1d4ed8,#22c55e);box-shadow:var(--shadow)}
-    h1{font-size:clamp(22px,4vw,36px);margin:0;font-weight:800}
-    .sub{color:var(--muted)}
-    .row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
-    .chip{border:1px solid rgba(255,255,255,.12);padding:8px 12px;border-radius:999px;color:var(--txt);text-decoration:none}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;background:linear-gradient(180deg,#0b0e14,#0b0e14 40%,#0f172a);color:var(--txt);line-height:1.6}
+    .wrap{max-width:1100px;margin:0 auto;padding:20px}
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+    .logo{font-weight:800;font-size:1.3rem}
+    .lang-switch{display:flex;gap:8px}
+    .chip{border:1px solid rgba(255,255,255,.15);padding:6px 12px;border-radius:999px;color:var(--txt);text-decoration:none;cursor:pointer;transition:background .2s}
     .chip.active{background:linear-gradient(135deg,#2563eb,#22c55e);border-color:transparent}
-    .btn{display:inline-block;text-decoration:none;background:linear-gradient(135deg,#2563eb,#22c55e);color:white;padding:10px 14px;border-radius:12px;font-weight:700;box-shadow:var(--shadow)}
-    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.15);color:var(--txt)}
-    .md{background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01));border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:22px;margin-top:18px;box-shadow:var(--shadow)}
-    .md h1,.md h2,.md h3{margin:14px 0 8px}
-    .md table{border-collapse:collapse;width:100%}
-    .md th,.md td{border:1px solid rgba(255,255,255,.15);padding:8px;vertical-align:top}
-    .md tr:nth-child(2n){background:rgba(255,255,255,.03)}
-    .md code{background:#0f172a;border:1px solid rgba(255,255,255,.08);padding:.2em .35em;border-radius:6px}
-    .md pre{overflow:auto;background:#0f172a;border:1px solid rgba(255,255,255,.08);padding:12px;border-radius:12px}
-    footer{margin-top:28px;color:var(--muted);display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+    .content{background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01));border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:22px;box-shadow:var(--shadow)}
+    .content table{border-collapse:collapse;width:100%}
+    .content th,.content td{border:1px solid rgba(255,255,255,.15);padding:8px;vertical-align:top}
+    .content tr:nth-child(2n){background:rgba(255,255,255,.03)}
+    .content code{background:#0f172a;border:1px solid rgba(255,255,255,.08);padding:.2em .35em;border-radius:6px}
+    .content pre{overflow:auto;background:#0f172a;border:1px solid rgba(255,255,255,.08);padding:12px;border-radius:12px}
+    footer{margin-top:20px;color:var(--muted);font-size:0.9rem;text-align:center}
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
-      <div class="logo">
-        <div class="badge">⚙️</div>
-        <div>
-          <h1 id="title">Servicios DevOps & Cloud</h1>
-          <div class="sub" id="subtitle">Terraform · Ansible · Docker · Azure · Grafana · Prometheus · WireGuard</div>
-        </div>
-      </div>
-      <div class="row">
-        <a class="btn ghost" id="cta-contact" href="#contacto">Contacto</a>
-        <a class="chip" id="chip-es" href="?lang=es">ES</a>
-        <a class="chip" id="chip-en" href="?lang=en">EN</a>
+      <div class="logo">Azure Infra Portfolio</div>
+      <div class="lang-switch">
+        <span class="chip" id="chip-es">ES</span>
+        <span class="chip" id="chip-en">EN</span>
       </div>
     </header>
 
-    <!-- Contenido Markdown renderizado -->
-    <main class="md" id="content">Cargando…</main>
+    <main class="content" id="content">Cargando contenido...</main>
 
     <footer>
-      <div>⏱ Respuesta media &lt; 12 h · 🔁 Mantenimiento mensual · 🛡 Buenas prácticas y seguridad</div>
-      <div>
-        <a class="btn ghost" href="https://www.upwork.com/freelancers/tu-perfil" target="_blank" rel="noopener">Upwork</a>
-        <a class="btn ghost" href="https://www.workana.com/freelancer/tu-perfil" target="_blank" rel="noopener">Workana</a>
-        <a class="btn" href="mailto:tuemail@dominio.com?subject=Consulta%20Servicios%20DevOps">Solicitar presupuesto</a>
-      </div>
+      © 2025 - Portfolio DevOps & Cloud
     </footer>
   </div>
 
-  <!-- marked.js para convertir Markdown a HTML en el navegador -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script>
-    (function(){
-      const params = new URLSearchParams(location.search);
-      const lang = (params.get('lang')||'es').toLowerCase();
-      const esFile = 'README.md';           // Español por defecto
-      const enFile = 'README.en.md';        // Ajusta si tu archivo se llama distinto
-      const mdPath = lang === 'en' ? enFile : esFile;
+    const chips = { es: document.getElementById('chip-es'), en: document.getElementById('chip-en') };
+    const contentEl = document.getElementById('content');
+    const esFile = 'README.md';
+    const enFile = 'README.en.md';
 
-      // Activar chip de idioma
-      document.getElementById('chip-es').classList.toggle('active', lang==='es');
-      document.getElementById('chip-en').classList.toggle('active', lang==='en');
-
-      // Cambiar título/CTA según idioma (opcional)
-      if(lang==='en'){
-        document.title = 'Portfolio & Pricing — EN';
-        document.getElementById('title').textContent = 'DevOps & Cloud Services';
-        document.getElementById('subtitle').textContent = 'Terraform · Ansible · Docker · Azure · Grafana · Prometheus · WireGuard';
-        document.getElementById('cta-contact').textContent = 'Contact';
-      }
-
-      // Cargar y convertir Markdown
-      fetch(mdPath, { cache: 'no-store' })
-        .then(r => { if(!r.ok) throw new Error('No se pudo cargar '+mdPath); return r.text(); })
+    function loadLang(lang) {
+      chips.es.classList.toggle('active', lang === 'es');
+      chips.en.classList.toggle('active', lang === 'en');
+      const file = lang === 'en' ? enFile : esFile;
+      contentEl.innerHTML = 'Cargando contenido...';
+      fetch(file, { cache: 'no-store' })
+        .then(r => { if(!r.ok) throw new Error('No se pudo cargar ' + file); return r.text(); })
         .then(md => {
-          // Configuración básica de marked
           marked.setOptions({ breaks:true, gfm:true });
-          const html = marked.parse(md);
-          document.getElementById('content').innerHTML = html;
-          // Arreglar enlaces relativos que empiecen por README.* para ir al bilingüe
-          // (opcional, puedes quitar esto si ya tienes tus propios botones)
-          const esBtn = document.querySelector('a[href$="README.md"], a[href*="(README.md)"]');
-          const enBtn = document.querySelector('a[href$="README.en.md"], a[href*="(README.en.md)"]');
-          if(esBtn) esBtn.href = '?lang=es';
-          if(enBtn) enBtn.href = '?lang=en';
+          contentEl.innerHTML = marked.parse(md);
         })
         .catch(err => {
-          document.getElementById('content').innerHTML = '<p style="color:#fca5a5">'+err.message+'</p>';
+          contentEl.innerHTML = '<p style="color:#fca5a5">'+err.message+'</p>';
         });
-    })();
+    }
+
+    chips.es.addEventListener('click', () => loadLang('es'));
+    chips.en.addEventListener('click', () => loadLang('en'));
+
+    // Detectar idioma inicial por URL o default ES
+    const params = new URLSearchParams(location.search);
+    const initialLang = (params.get('lang') || 'es').toLowerCase();
+    loadLang(initialLang);
   </script>
 </body>
 </html>
