@@ -3,21 +3,50 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Azure Infra Portfolio</title>
+  <title>Azure Infra Portfolio — ES</title>
   <meta name="description" content="Portfolio bilingüe: Terraform, Ansible, Docker, Azure, Grafana, Prometheus, WireGuard." />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{--bg:#0b0e14;--muted:#9aa4b2;--txt:#eef2f7;--shadow:0 10px 30px rgba(0,0,0,.35)}
     *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;background:linear-gradient(180deg,#0b0e14,#0b0e14 40%,#0f172a);color:var(--txt);line-height:1.6}
-    .wrap{max-width:1100px;margin:0 auto;padding:20px}
-    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
-    .logo{font-weight:800;font-size:1.3rem}
-    .lang-switch{display:flex;gap:8px}
-    .chip{border:1px solid rgba(255,255,255,.15);padding:6px 12px;border-radius:999px;color:var(--txt);text-decoration:none;cursor:pointer;transition:background .2s}
+    body{
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      background:linear-gradient(180deg,#0b0e14,#0b0e14 40%,#0f172a);
+      color:var(--txt);
+    }
+    .wrap{max-width:1100px;margin:0 auto;padding:88px 20px 24px}
+    /* Header fijo */
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter:saturate(140%) blur(10px);
+      background:rgba(11,14,20,.6);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .bar{
+      max-width:1100px;margin:0 auto;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:14px 20px;
+    }
+    .logo{font-weight:800;font-size:1.15rem}
+    .lang-switch{display:flex;gap:10px;align-items:center}
+    .chip{
+      border:1px solid rgba(255,255,255,.15);
+      padding:8px 12px;border-radius:999px;
+      color:var(--txt);text-decoration:none;cursor:pointer;
+      transition:transform .08s ease, background .2s, border-color .2s;
+      user-select:none; outline:none;
+    }
+    .chip:hover{border-color:rgba(255,255,255,.35); transform:translateY(-1px)}
+    .chip:focus-visible{box-shadow:0 0 0 3px rgba(96,165,250,.35)}
     .chip.active{background:linear-gradient(135deg,#2563eb,#22c55e);border-color:transparent}
-    .content{background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01));border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:22px;box-shadow:var(--shadow)}
+    .content{
+      background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01));
+      border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:22px;
+      box-shadow:var(--shadow); line-height:1.8; /* lectura cómoda */
+    }
+    .content a{color:#93c5fd}
+    .content h1,.content h2,.content h3{scroll-margin-top:90px}
     .content table{border-collapse:collapse;width:100%}
     .content th,.content td{border:1px solid rgba(255,255,255,.15);padding:8px;vertical-align:top}
     .content tr:nth-child(2n){background:rgba(255,255,255,.03)}
@@ -27,20 +56,19 @@
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="logo">Azure Infra Portfolio</div>
-      <div class="lang-switch">
-        <span class="chip" id="chip-es">ES</span>
-        <span class="chip" id="chip-en">EN</span>
+  <header>
+    <div class="bar">
+      <div class="logo" id="logo">Azure Infra Portfolio</div>
+      <div class="lang-switch" role="group" aria-label="Selector de idioma">
+        <button class="chip" id="chip-es" type="button" aria-pressed="true" aria-label="Español">ES</button>
+        <button class="chip" id="chip-en" type="button" aria-pressed="false" aria-label="English">EN</button>
       </div>
-    </header>
+    </div>
+  </header>
 
+  <div class="wrap">
     <main class="content" id="content">Cargando contenido...</main>
-
-    <footer>
-      © 2025 - Portfolio DevOps & Cloud
-    </footer>
+    <footer>© 2025 — Portfolio DevOps & Cloud</footer>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
@@ -50,29 +78,54 @@
     const esFile = 'README.md';
     const enFile = 'README.en.md';
 
-    function loadLang(lang) {
-      chips.es.classList.toggle('active', lang === 'es');
-      chips.en.classList.toggle('active', lang === 'en');
-      const file = lang === 'en' ? enFile : esFile;
+    function setDocLang(lang){
+      document.documentElement.lang = (lang === 'en') ? 'en' : 'es';
+      document.title = (lang === 'en')
+        ? 'Azure Infra Portfolio — EN'
+        : 'Azure Infra Portfolio — ES';
+    }
+
+    function paintChips(lang){
+      chips.es.classList.toggle('active', lang==='es');
+      chips.en.classList.toggle('active', lang==='en');
+      chips.es.setAttribute('aria-pressed', lang==='es');
+      chips.en.setAttribute('aria-pressed', lang==='en');
+    }
+
+    function updateUrl(lang){
+      const url = new URL(location.href);
+      url.searchParams.set('lang', lang);
+      history.replaceState({}, '', url); // sin recargar
+    }
+
+    function loadLang(lang){
+      const file = (lang === 'en') ? enFile : esFile;
+      localStorage.setItem('lang', lang);
+      setDocLang(lang);
+      paintChips(lang);
+      updateUrl(lang);
       contentEl.innerHTML = 'Cargando contenido...';
       fetch(file, { cache: 'no-store' })
         .then(r => { if(!r.ok) throw new Error('No se pudo cargar ' + file); return r.text(); })
         .then(md => {
           marked.setOptions({ breaks:true, gfm:true });
           contentEl.innerHTML = marked.parse(md);
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         })
         .catch(err => {
           contentEl.innerHTML = '<p style="color:#fca5a5">'+err.message+'</p>';
         });
     }
 
+    // Eventos
     chips.es.addEventListener('click', () => loadLang('es'));
     chips.en.addEventListener('click', () => loadLang('en'));
 
-    // Detectar idioma inicial por URL o default ES
+    // Idioma inicial: URL -> localStorage -> ES
     const params = new URLSearchParams(location.search);
-    const initialLang = (params.get('lang') || 'es').toLowerCase();
-    loadLang(initialLang);
+    const initial = (params.get('lang') || localStorage.getItem('lang') || 'es').toLowerCase();
+    loadLang(initial);
   </script>
 </body>
 </html>
+
