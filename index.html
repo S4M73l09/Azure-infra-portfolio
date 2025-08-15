@@ -158,6 +158,7 @@
     const params = new URLSearchParams(location.search);
     const initial = (params.get('lang') || localStorage.getItem('lang') || 'es').toLowerCase();
     loadLang(initial);
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
