@@ -97,12 +97,15 @@ Y para mayor flexibilidad, si combinas 3 o mas servicios, aplico automaticamente
  - Si prefieres no preocuparte por nada, ofrezco planes de mantenimiento técnico remoto (actualizaciones, backups, rotación de secretos...).
 
 -----------------------------------------------------------------------------------
-Y sin mas, estoy a tu disposicion, puedes contactarme para pedir presupuesto o hablar de tu proyecto:
 
-📧[Contacto por correo](mailto:saminfradevops@gmail.com)
+<!--contact-section-start-->
+Y sin más, estoy a tu disposición, puedes contactarme para pedir presupuesto o hablar de tu proyecto:  
 
-Tambien puedes contactarme en:
+📮 [Contacto por correo](mailto:saminfradevops@gmail.com)  
 
-💻[Github](https://github.com/S4M73l09)
+También puedes contactarme en:  
 
-🔗[LinkedIn](https://www.linkedin.com/in/samuelillobaby/)
+📘 [Github](https://github.com/S4M73l09)  
+
+🔗 [LinkedIn](https://www.linkedin.com/in/samuelillobaby/)
+<!--contact-section-end-->
