@@ -118,14 +118,21 @@
   <div class="contact-buttons">
     <a class="contact-btn" id="gmail-btn" target="_blank">📧 Abrir en Gmail</a>
     <a class="contact-btn" id="mailto-btn">✉️ Contactar por correo</a>
+    <a class="contact-btn" id="github-btn" target="_blank">🐙 GitHub</a>
+    <a class="contact-btn" id="linkedin-btn" target="_blank">💼 LinkedIn</a>
   </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script>
-  const email = "tu_correo@ejemplo.com"; // <-- PON AQUÍ TU EMAIL
+  const email = "saminfradevops@gmail.com"; // <-- EL EMAIL DE CONTACTO
+  const githubURL = "https://github.com/S4M73l09"; // <-- MI QUERIDO PERFIL
+  const linkedinURL = "https://www.linkedin.com/in/samuelillobaby/"; // <-- MI OTRO QUERIDO PERFIL
+
   document.getElementById("gmail-btn").href = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}`;
   document.getElementById("mailto-btn").href = `mailto:${email}`;
+  document.getElementById("github-btn").href = githubURL;
+  document.getElementById("linkedin-btn").href = linkedinURL;
 
   const langBtns = document.querySelectorAll('.lang-btn');
   function switchLang(lang) {
@@ -140,7 +147,7 @@
     const file = lang === 'en' ? 'README.en.md' : 'README.md';
     const res = await fetch(file);
     let md = await res.text();
-    // Eliminar la sección de contacto marcada en el README
+    // Ocultar la sección de contacto marcada en el README
     md = md.replace(/<!--contact-section-start-->[\s\S]*?<!--contact-section-end-->/, '');
     document.getElementById('content').innerHTML = marked.parse(md);
   }
