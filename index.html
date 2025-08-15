@@ -1,146 +1,153 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Azure Infra Portfolio — ES</title>
-  <meta name="description" content="Portfolio bilingüe: Terraform, Ansible, Docker, Azure, Grafana, Prometheus, WireGuard." />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    :root{--bg:#0b0e14;--muted:#9aa4b2;--txt:#eef2f7;--shadow:0 10px 30px rgba(0,0,0,.35)}
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
-      background:linear-gradient(180deg,#0b0e14,#0b0e14 40%,#0f172a);
-      color:var(--txt);
-    }
-    .wrap{max-width:1100px;margin:0 auto;padding:88px 20px 24px}
-
-    /* Header fijo y limpio */
-    header{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter:saturate(140%) blur(10px);
-      background:rgba(11,14,20,.6);
-      border-bottom:1px solid rgba(255,255,255,.06);
-    }
-    .bar{
-      max-width:1100px;margin:0 auto;
-      display:flex;align-items:center;justify-content:space-between;
-      padding:14px 20px;
-    }
-    .logo{font-weight:800;font-size:1.15rem}
-    .lang-switch{display:flex;gap:10px;align-items:center}
-    .chip{
-      border:1px solid rgba(255,255,255,.15);
-      padding:8px 12px;border-radius:999px;
-      color:var(--txt);text-decoration:none;cursor:pointer;
-      transition:transform .08s ease, background .2s, border-color .2s;
-      user-select:none; outline:none; background:transparent;
-    }
-    .chip:hover{border-color:rgba(255,255,255,.35); transform:translateY(-1px)}
-    .chip:focus-visible{box-shadow:0 0 0 3px rgba(96,165,250,.35)}
-    .chip.active{background:linear-gradient(135deg,#2563eb,#22c55e);border-color:transparent}
-
-    /* Contenido renderizado del README */
-    .content{
-      background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01));
-      border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:24px;
-      box-shadow:var(--shadow); line-height:1.8; /* lectura cómoda */
-    }
-    .content a{color:#93c5fd}
-    .content h1,.content h2,.content h3{scroll-margin-top:90px}
-
-    /* Tablas: aire extra */
-    .content table{
-      width:100%;
-      border-collapse:separate;       /* permite más control de espaciamiento */
-      border-spacing:0;               /* sin huecos entre bordes */
-    }
-    .content th,.content td{
-      border:1px solid rgba(255,255,255,.15);
-      padding:14px 12px;              /* MÁS espacio vertical */
-      vertical-align:top;
-      line-height:1.6;                /* texto menos comprimido en celdas */
-    }
-    .content tr:nth-child(2n){background:rgba(255,255,255,.03)}
-
-    .content code{background:#0f172a;border:1px solid rgba(255,255,255,.08);padding:.2em .35em;border-radius:6px}
-    .content pre{overflow:auto;background:#0f172a;border:1px solid rgba(255,255,255,.08);padding:12px;border-radius:12px}
-
-    footer{margin-top:20px;color:var(--muted);font-size:0.9rem;text-align:center}
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Azure Infra Portfolio</title>
+<style>
+  :root {
+    --bg: #0b0e14;
+    --txt: #e2e8f0;
+    --shadow: 0 4px 12px rgba(0,0,0,.4);
+    --btn-bg: #1e293b;
+    --btn-hover: #334155;
+  }
+  body {
+    font-family: Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+    background: linear-gradient(180deg,#0b0e14,#0b0e14 40%,#0f172a);
+    color: var(--txt);
+    line-height: 1.75;
+    margin: 0;
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 22px;
+    background: rgba(15,23,42,0.95);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: var(--shadow);
+  }
+  h1 {
+    font-size: 1.4rem;
+    margin: 0;
+  }
+  .lang-switch {
+    display: flex;
+    gap: 6px;
+  }
+  .lang-btn {
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1px solid #475569;
+    background: var(--btn-bg);
+    color: var(--txt);
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .lang-btn.active {
+    background: linear-gradient(135deg,#3b82f6,#10b981);
+    border: none;
+    font-weight: bold;
+  }
+  .lang-btn:hover {
+    background: var(--btn-hover);
+    transform: translateY(-1px);
+  }
+  .content {
+    background: linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01));
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 18px;
+    padding: 22px;
+    box-shadow: var(--shadow);
+    max-width: 960px;
+    margin: 24px auto;
+    line-height: 1.8;
+  }
+  .content table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+  }
+  .content th, .content td {
+    border: 1px solid rgba(255,255,255,.15);
+    padding: 14px 10px;
+    line-height: 1.6;
+    vertical-align: top;
+  }
+  footer {
+    max-width: 960px;
+    margin: 20px auto;
+    text-align: center;
+  }
+  .contact-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+  .contact-btn {
+    background: var(--btn-bg);
+    color: var(--txt);
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .contact-btn:hover {
+    background: var(--btn-hover);
+  }
+</style>
 </head>
 <body>
-  <header>
-    <div class="bar">
-      <div class="logo" id="logo">Azure Infra Portfolio</div>
-      <div class="lang-switch" role="group" aria-label="Selector de idioma">
-        <button class="chip" id="chip-es" type="button" aria-pressed="true" aria-label="Español">ES</button>
-        <button class="chip" id="chip-en" type="button" aria-pressed="false" aria-label="English">EN</button>
-      </div>
-    </div>
-  </header>
-
-  <div class="wrap">
-    <main class="content" id="content">Cargando contenido...</main>
-    <footer>© 2025 — Portfolio DevOps & Cloud</footer>
+<header>
+  <h1>Azure Infra Portfolio</h1>
+  <div class="lang-switch">
+    <button class="lang-btn active" onclick="switchLang('es')">ES</button>
+    <button class="lang-btn" onclick="switchLang('en')">EN</button>
   </div>
+</header>
 
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    const chips = { es: document.getElementById('chip-es'), en: document.getElementById('chip-en') };
-    const contentEl = document.getElementById('content');
-    const esFile = 'README.md';
-    const enFile = 'README.en.md';
+<div id="content" class="content">Cargando...</div>
 
-    function setDocLang(lang){
-      document.documentElement.lang = (lang === 'en') ? 'en' : 'es';
-      document.title = (lang === 'en')
-        ? 'Azure Infra Portfolio — EN'
-        : 'Azure Infra Portfolio — ES';
-    }
+<footer>
+  <div class="contact-buttons">
+    <a class="contact-btn" id="gmail-btn" target="_blank">📧 Abrir en Gmail</a>
+    <a class="contact-btn" id="mailto-btn">✉️ Contactar por correo</a>
+  </div>
+</footer>
 
-    function paintChips(lang){
-      chips.es.classList.toggle('active', lang==='es');
-      chips.en.classList.toggle('active', lang==='en');
-      chips.es.setAttribute('aria-pressed', lang==='es');
-      chips.en.setAttribute('aria-pressed', lang==='en');
-    }
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+  const email = "tu_correo@ejemplo.com"; // <-- PON AQUÍ TU EMAIL
+  document.getElementById("gmail-btn").href = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}`;
+  document.getElementById("mailto-btn").href = `mailto:${email}`;
 
-    function updateUrl(lang){
-      const url = new URL(location.href);
-      url.searchParams.set('lang', lang);
-      history.replaceState({}, '', url); // sin recargar
-    }
+  const langBtns = document.querySelectorAll('.lang-btn');
+  function switchLang(lang) {
+    loadLang(lang);
+    localStorage.setItem('lang', lang);
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelector(`.lang-btn[onclick="switchLang('${lang}')"]`).classList.add('active');
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
 
-    function loadLang(lang){
-      const file = (lang === 'en') ? enFile : esFile;
-      localStorage.setItem('lang', lang);
-      setDocLang(lang);
-      paintChips(lang);
-      updateUrl(lang);
-      contentEl.innerHTML = 'Cargando contenido...';
-      fetch(file, { cache: 'no-store' })
-        .then(r => { if(!r.ok) throw new Error('No se pudo cargar ' + file); return r.text(); })
-        .then(md => {
-          marked.setOptions({ breaks:true, gfm:true });
-          contentEl.innerHTML = marked.parse(md);
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        })
-        .catch(err => {
-          contentEl.innerHTML = '<p style="color:#fca5a5">'+err.message+'</p>';
-        });
-    }
+  async function loadLang(lang) {
+    const file = lang === 'en' ? 'README.en.md' : 'README.md';
+    const res = await fetch(file);
+    let md = await res.text();
+    // Eliminar la sección de contacto marcada en el README
+    md = md.replace(/<!--contact-section-start-->[\s\S]*?<!--contact-section-end-->/, '');
+    document.getElementById('content').innerHTML = marked.parse(md);
+  }
 
-    // Eventos botones idioma
-    chips.es.addEventListener('click', () => loadLang('es'));
-    chips.en.addEventListener('click', () => loadLang('en'));
-
-    // Idioma inicial: URL -> localStorage -> ES
-    const params = new URLSearchParams(location.search);
-    const initial = (params.get('lang') || localStorage.getItem('lang') || 'es').toLowerCase();
-    loadLang(initial);
-  </script>
+  const savedLang = localStorage.getItem('lang') || 'es';
+  loadLang(savedLang);
+  document.querySelector(`.lang-btn[onclick="switchLang('${savedLang}')"]`).classList.add('active');
+</script>
 </body>
 </html>
