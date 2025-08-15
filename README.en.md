@@ -105,6 +105,7 @@ You choose what you need, and I’ll integrate it into a **functional, documente
 
 ---
 
+<!--contact-section-start-->
 💬 I’m available to discuss your project or provide a custom quote:
 
 📧 Email: [Here🙋‍♂️](mailto:saminfradevops@gmail.com)
@@ -112,4 +113,4 @@ You choose what you need, and I’ll integrate it into a **functional, documente
 💻 [GitHub](https://github.com/S4M73l09) 
 
 🔗 [LinkedIn](https://www.linkedin.com/in/samuelillobaby/)
-
+<!--contact-section-end-->
