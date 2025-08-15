@@ -3,158 +3,191 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Azure Infra Portfolio</title>
+<title>Azure Infra Portfolio — ES</title>
+<meta name="description" content="Portfolio bilingüe: Terraform, Ansible, Docker, Azure, Grafana, Prometheus, WireGuard." />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #0b0e14;
-    --txt: #e2e8f0;
-    --shadow: 0 4px 12px rgba(0,0,0,.4);
-    --btn-bg: #1e293b;
-    --btn-hover: #334155;
+  :root{
+    --bg:#0b0e14; --txt:#e2e8f0; --muted:#9aa4b2;
+    --btn-bg:#1e293b; --btn-hover:#334155; --shadow:0 4px 12px rgba(0,0,0,.35);
+    --accent:#22c55e; --accent2:#2563eb;
   }
-  body {
-    font-family: Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
-    background: linear-gradient(180deg,#0b0e14,#0b0e14 40%,#0f172a);
-    color: var(--txt);
-    line-height: 1.75;
-    margin: 0;
+  *{box-sizing:border-box}
+  body{
+    margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+    background:linear-gradient(180deg,#0b0e14,#0b0e14 40%,#0f172a); color:var(--txt);
   }
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 22px;
-    background: rgba(15,23,42,0.95);
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    box-shadow: var(--shadow);
+  /* Header fijo */
+  header{
+    position:sticky; top:0; z-index:50; backdrop-filter:saturate(140%) blur(10px);
+    background:rgba(11,14,20,.75); border-bottom:1px solid rgba(255,255,255,.06);
   }
-  h1 {
-    font-size: 1.4rem;
-    margin: 0;
+  .bar{
+    max-width:1100px; margin:0 auto; padding:14px 20px;
+    display:flex; align-items:center; justify-content:space-between;
   }
-  .lang-switch {
-    display: flex;
-    gap: 6px;
+  .logo{font-weight:800; font-size:1.15rem}
+  .lang-switch{display:flex; gap:10px; align-items:center}
+  .chip{
+    padding:8px 12px; border-radius:999px; border:1px solid rgba(255,255,255,.15);
+    background:transparent; color:var(--txt); cursor:pointer; font-weight:600;
+    transition:transform .08s ease, background .2s, border-color .2s;
   }
-  .lang-btn {
-    padding: 6px 12px;
-    border-radius: 999px;
-    border: 1px solid #475569;
-    background: var(--btn-bg);
-    color: var(--txt);
-    cursor: pointer;
-    font-size: 0.85rem;
-    transition: background 0.2s, transform 0.2s;
+  .chip:hover{transform:translateY(-1px); border-color:rgba(255,255,255,.35)}
+  .chip.active{background:linear-gradient(135deg,var(--accent2),var(--accent)); border-color:transparent}
+
+  .wrap{max-width:1100px; margin:0 auto; padding:88px 20px 24px}
+  .content{
+    background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01));
+    border:1px solid rgba(255,255,255,.08); border-radius:18px; padding:24px;
+    box-shadow:var(--shadow); line-height:1.8;
   }
-  .lang-btn.active {
-    background: linear-gradient(135deg,#3b82f6,#10b981);
-    border: none;
-    font-weight: bold;
+  .content a{color:#93c5fd}
+  .content h1,.content h2,.content h3{scroll-margin-top:90px}
+
+  /* Tablas más cómodas */
+  .content table{width:100%; border-collapse:separate; border-spacing:0}
+  .content th,.content td{
+    border:1px solid rgba(255,255,255,.15); padding:14px 12px; line-height:1.6; vertical-align:top;
   }
-  .lang-btn:hover {
-    background: var(--btn-hover);
-    transform: translateY(-1px);
+  .content tr:nth-child(2n){background:rgba(255,255,255,.03)}
+  .content code{background:#0f172a; border:1px solid rgba(255,255,255,.08); padding:.2em .35em; border-radius:6px}
+  .content pre{overflow:auto; background:#0f172a; border:1px solid rgba(255,255,255,.08); padding:12px; border-radius:12px}
+
+  /* Bloque proyecto destacado */
+  .highlight-project{
+    margin:16px 0 6px; padding:12px 14px;
+    background:rgba(255,255,255,.05);
+    border-left:4px solid #38bdf8; border-radius:12px;
+    display:flex; gap:10px; align-items:center; line-height:1.6;
   }
-  .content {
-    background: linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01));
-    border: 1px solid rgba(255,255,255,.08);
-    border-radius: 18px;
-    padding: 22px;
-    box-shadow: var(--shadow);
-    max-width: 960px;
-    margin: 24px auto;
-    line-height: 1.8;
+  .highlight-project a{color:#38bdf8; text-decoration:underline}
+  .highlight-project a:hover{opacity:.9}
+
+  footer{margin-top:20px; text-align:center; color:var(--muted)}
+  .contact-buttons{margin-top:10px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
+  .btn{
+    display:inline-block; padding:8px 14px; border-radius:8px; text-decoration:none; font-weight:600;
+    background:var(--btn-bg); color:var(--txt); box-shadow:var(--shadow);
+    transition:background .2s, transform .08s ease;
   }
-  .content table {
-    border-collapse: separate;
-    border-spacing: 0;
-    width: 100%;
-  }
-  .content th, .content td {
-    border: 1px solid rgba(255,255,255,.15);
-    padding: 14px 10px;
-    line-height: 1.6;
-    vertical-align: top;
-  }
-  footer {
-    max-width: 960px;
-    margin: 20px auto;
-    text-align: center;
-  }
-  .contact-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-top: 16px;
-  }
-  .contact-btn {
-    background: var(--btn-bg);
-    color: var(--txt);
-    padding: 8px 16px;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: background 0.2s;
-  }
-  .contact-btn:hover {
-    background: var(--btn-hover);
-  }
+  .btn:hover{background:var(--btn-hover); transform:translateY(-1px)}
 </style>
 </head>
 <body>
-<header>
-  <h1>Azure Infra Portfolio</h1>
-  <div class="lang-switch">
-    <button class="lang-btn active" onclick="switchLang('es')">ES</button>
-    <button class="lang-btn" onclick="switchLang('en')">EN</button>
+  <header>
+    <div class="bar">
+      <div class="logo" id="logo">Azure Infra Portfolio</div>
+      <div class="lang-switch" role="group" aria-label="Selector de idioma">
+        <button class="chip" id="chip-es" type="button" aria-pressed="true">ES</button>
+        <button class="chip" id="chip-en" type="button" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <main class="content" id="content">Cargando contenido…</main>
+
+    <footer>
+      © 2025 — Portfolio DevOps & Cloud
+      <div class="contact-buttons">
+        <a class="btn" id="gmail-btn" target="_blank">📧 Abrir en Gmail</a>
+        <a class="btn" id="mailto-btn">✉️ Contactar por correo</a>
+        <a class="btn" id="github-btn" target="_blank">🐙 GitHub</a>
+        <a class="btn" id="linkedin-btn" target="_blank">💼 LinkedIn</a>
+        <a class="btn" id="project-btn" target="_blank">📂 Ver repositorio del proyecto</a>
+      </div>
+    </footer>
   </div>
-</header>
 
-<div id="content" class="content">Cargando...</div>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    /* ====== TUS DATOS ====== */
+    const email = "mailto:saminfradevops@gmail.com";                       // <- pon tu correo
+    const githubURL = "https://github.com/S4M73l09";                        // <- tu GitHub
+    const linkedinURL = "https://www.linkedin.com/in/samuelillobaby/";     // <- tu LinkedIn
+    const projectRepoURL = "https://github.com/S4M73l09/ProyectoServer; // <- repo del proyecto
 
-<footer>
-  <div class="contact-buttons">
-    <a class="contact-btn" id="gmail-btn" target="_blank">📧 Abrir en Gmail</a>
-    <a class="contact-btn" id="mailto-btn">✉️ Contactar por correo</a>
-    <a class="contact-btn" id="github-btn" target="_blank">🐙 GitHub</a>
-    <a class="contact-btn" id="linkedin-btn" target="_blank">💼 LinkedIn</a>
-  </div>
-</footer>
+    // Footer links
+    gmail-btn.href   = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}`;
+    mailto-btn.href  = `mailto:${email}`;
+    github-btn.href  = githubURL;
+    linkedin-btn.href= linkedinURL;
+    project-btn.href = projectRepoURL;
 
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-<script>
-  const email = "saminfradevops@gmail.com"; // <-- EL EMAIL DE CONTACTO
-  const githubURL = "https://github.com/S4M73l09"; // <-- MI QUERIDO PERFIL
-  const linkedinURL = "https://www.linkedin.com/in/samuelillobaby/"; // <-- MI OTRO QUERIDO PERFIL
+    const chips = { es: document.getElementById('chip-es'), en: document.getElementById('chip-en') };
+    const contentEl = document.getElementById('content');
 
-  document.getElementById("gmail-btn").href = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}`;
-  document.getElementById("mailto-btn").href = `mailto:${email}`;
-  document.getElementById("github-btn").href = githubURL;
-  document.getElementById("linkedin-btn").href = linkedinURL;
+    function setDocLang(lang){
+      document.documentElement.lang = (lang==='en') ? 'en' : 'es';
+      document.title = (lang==='en') ? 'Azure Infra Portfolio — EN' : 'Azure Infra Portfolio — ES';
+      chips.es.classList.toggle('active', lang==='es');
+      chips.en.classList.toggle('active', lang==='en');
+      chips.es.setAttribute('aria-pressed', lang==='es');
+      chips.en.setAttribute('aria-pressed', lang==='en');
+    }
 
-  const langBtns = document.querySelectorAll('.lang-btn');
-  function switchLang(lang) {
-    loadLang(lang);
-    localStorage.setItem('lang', lang);
-    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-    document.querySelector(`.lang-btn[onclick="switchLang('${lang}')"]`).classList.add('active');
-    window.scrollTo({top: 0, behavior: 'smooth'});
-  }
+    function updateUrl(lang){
+      const url = new URL(location.href);
+      url.searchParams.set('lang', lang);
+      history.replaceState({}, '', url);
+    }
 
-  async function loadLang(lang) {
-    const file = lang === 'en' ? 'README.en.md' : 'README.md';
-    const res = await fetch(file);
-    let md = await res.text();
-    // Ocultar la sección de contacto marcada en el README
-    md = md.replace(/<!--contact-section-start-->[\s\S]*?<!--contact-section-end-->/, '');
-    document.getElementById('content').innerHTML = marked.parse(md);
-  }
+    // Inserta el bloque “proyectos propios” bajo la intro (después del primer <hr> o al inicio)
+    function injectProjectCallout(lang){
+      // texto bilingüe
+      const text = (lang==='en')
+        ? '👉 Want to see my skills in action? '
+        : '👉 ¿Quieres ver mis habilidades en acción? ';
+      const linkText = (lang==='en')
+        ? 'Click here to view the project repository'
+        : 'Haz clic aquí para ver el repositorio del proyecto';
 
-  const savedLang = localStorage.getItem('lang') || 'es';
-  loadLang(savedLang);
-  document.querySelector(`.lang-btn[onclick="switchLang('${savedLang}')"]`).classList.add('active');
-</script>
+      // crea el bloque
+      const callout = document.createElement('div');
+      callout.className = 'highlight-project';
+      callout.innerHTML = `${text}<a href="${projectRepoURL}" target="_blank" rel="noopener">${linkText}</a>`;
+
+      // coloca: justo después del primer <p> o antes del primer <hr>
+      const firstHr = contentEl.querySelector('hr');
+      const firstP  = contentEl.querySelector('p');
+      if (firstHr) {
+        firstHr.parentNode.insertBefore(callout, firstHr);
+      } else if (firstP) {
+        firstP.parentNode.insertBefore(callout, firstP.nextSibling);
+      } else {
+        contentEl.prepend(callout);
+      }
+    }
+
+    async function loadLang(lang){
+      const file = (lang==='en') ? 'README.en.md' : 'README.md';
+      localStorage.setItem('lang', lang);
+      setDocLang(lang); updateUrl(lang);
+      contentEl.innerHTML = 'Cargando contenido…';
+      try{
+        const res = await fetch(file, {cache:'no-store'});
+        if(!res.ok) throw new Error('No se pudo cargar ' + file);
+        let md = await res.text();
+        // Oculta la sección de contacto del README entre estos marcadores:
+        // <!--contact-section-start--> ... <!--contact-section-end-->
+        md = md.replace(/<!--contact-section-start-->[\s\S]*?<!--contact-section-end-->/, '');
+        marked.setOptions({gfm:true, breaks:true});
+        contentEl.innerHTML = marked.parse(md);
+        injectProjectCallout(lang);
+        window.scrollTo({top:0, behavior:'smooth'});
+      }catch(e){
+        contentEl.innerHTML = '<p style="color:#fca5a5">'+e.message+'</p>';
+      }
+    }
+
+    chips.es.addEventListener('click', ()=>loadLang('es'));
+    chips.en.addEventListener('click', ()=>loadLang('en'));
+
+    const params = new URLSearchParams(location.search);
+    const initial = (params.get('lang') || localStorage.getItem('lang') || 'es').toLowerCase();
+    loadLang(initial);
+  </script>
 </body>
 </html>
