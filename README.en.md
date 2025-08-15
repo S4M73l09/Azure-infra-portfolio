@@ -1,6 +1,3 @@
-[![English version](https://img.shields.io/badge/🌐%20English-blue?style=for-the-badge)](README.en.md)
-[![Versión en español](https://img.shields.io/badge/🌐%20Español-red?style=for-the-badge)](README.md)
-
 
 
 # **Azure Infrastructure Portfolio**  
