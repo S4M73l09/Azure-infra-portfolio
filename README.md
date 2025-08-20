@@ -48,9 +48,12 @@ Cada proyecto se divide en fases claras, con entregables verificables. De esta f
 **Despliege basico (950€)**
 
  **1.** Creación de certificacion OIDC + Backend.tf para terraform.
+ 
  **2.** Conexion a Github Actions y creacion de repositorio.
- **3.** Infraestructura Inicial (Terraform) -> Creación de RG, red y VM en Azure
- **4.** Despliegue de Docker con Ansible, mas .yml en el repositorio
+ 
+ **3.** Infraestructura Inicial (Terraform) -> Creación de RG, red y VM en Azure.
+ 
+ **4.** Despliegue de Docker con Ansible, mas .yml en el repositorio.
 
 **Despliegue controlado**
 
