@@ -22,11 +22,39 @@ Por eso combino herramientas como Terraform, Ansible y Github Actions, y me invo
 
 ## 1️⃣ Infraestructura como código y despliegues completos
 
-|🚀Servicio                                                        |📄Descripción breve                                            |💰Desde (€)   |⏱Tiempo estimado 
-| ---------------------------------------------------------------- | -------------------------------------------------------------- | ---------    | --------------- |
-| Terraform en Azure                                               | Despliegue de infraestructuras reproducibles: redes, VMs, etc. | 300 €        |     3-5 días    |   
-| Terraform Solo                                                   | Despliegue de solo Máquina Virtual                             | 250 €        |     1-2 días    |
-| Despliegue completo (Terraform + GitHub Actions + Ansible + VPN) | Infraestructura llave en mano, automatizada y segura           | 750 €        |     7-10 días   |
+|🚀Servicio                                                              |📄Descripción breve                                                                 |💰Desde (€)   |⏱Tiempo estimado 
+| -----------------------------------------------------------------      | ----------------------------------------------------------------------------------  | ---------    | --------------- |
+| Terraform solo                                                         | Despliegue de solo maquina virtual                                                  | 200 €        |     1-2 días    |   
+| Terraform basico                                                       | Terraform (RG, VNet, VM, NSG) + Docker mediante Ansible (.yml editables)            | 800 €        |     5-7 días    |
+| Despliegue basico (Terraform, Github OIDC, Despliege Docker con Ansible)                  | Despliegue de VM, permiso OIDC Azure para backend remoto + Docker                   | 950€         |     5-7 días    |
+| Despliegue controlado (Terraform, Github Actions, OIDC, plan en PR, apply en main)             | Despliegue organizado VM, permiso OIDC azure, Github actions aplicada en rama main  | 1200€        |     7-10 días   |
+| Despliegue completo (Terraform + Actions + OIDC + Docker + Grafana + Prometheus)       | Infraestructura llave en mano, automatizada y segura                                | 2800€        |     10-15 días  |
+| Despliegue avanzado (terraform + Actions + OIDC + Ansible + Docker + Grafana + Prometheus + rama prueba y main + Documentacion avanzada + Dashboard y Alertas básicas | 6000€ | 20-40 días
+
+### 🚀 Enfoque por metas (milestones)
+
+Cada proyecto se divide en fases claras, con entregables verificables. De esta forma el cliente puede ver avances, validar resultados y tener control total del progreso.
+
+**terraform Básico (800 €)**
+
+ **1.** Infraestructura inicial (Terraform) → Creación de RG, red y VM en Azure.
+
+ **2.** Provisionamiento (Ansible) → Configuración básica de la VM e instalación de Docker.
+
+ **3.** Despliegue de servicios → Aplicación base corriendo en contenedores.
+
+ **4.** Documentación → README con comandos para reproducir la infraestructura.
+
+**Despliege basico (950€)**
+
+ **1.** Creación de certificacion OIDC + Backend.tf para terraform.
+ **2.** Conexion a Github Actions y creacion de repositorio.
+ **3.** Infraestructura Inicial (Terraform) -> Creación de RG, red y VM en Azure
+ **4.** Despliegue de Docker con Ansible, mas .yml en el repositorio
+
+**Despliegue controlado**
+
+
 
 ## 2️⃣ Automatización con Ansible
 
