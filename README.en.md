@@ -26,11 +26,34 @@ That’s why I combine tools like **Terraform, Ansible, and GitHub Actions**, an
 ### **1️⃣ Infrastructure as Code & Full Deployments**  
 | 🚀 Service | 📄 Short Description | 💰 From (€) | 📦 Delivery |
 |------------|---------------------|-------------|-------|
-| Terraform on Azure | Deploy reproducible infrastructures: networks, VMs, etc. | 300 € | 3–5 days |
-| Terraform – VM Only | Single Virtual Machine deployment | 250 € | 1–2 days |
-| Full Deployment (Terraform + GitHub Actions + Ansible + VPN) | Turnkey, automated, and secure infrastructure | 750 € | 7–10 days |
+| Only Terraform | Deployment of only virtual machine | 200 € | 3–5 days |
+| Terraform – Docker | Terraform (RG, VNet, VM, NSG) + Docker using Ansible (.yml editable) | 800 € | 1–2 days |
+| Basic Deployment (Terraform, Github OIDC, Desployment Docker with Ansible) | VM deployment, Azure OIDC permission for remote backend + Docker | 950 € | 6–10 days |
+| Controlled deployment (Terraform, Github Actions, OIDC, plan in PR, apply in main) | Organized VM deployment, OIDC azure permission, Github actions applied in main branch |1200€ | 8-12 days |
+| Complete deployment (Terraform, Actions, OIDC, Docker, Grafana and Prometheus) | Turnkey, automated and secure infrastructure | 2800€ | 10-15 days | 
+| Advanced deployment (Terraform, Actions, OIDC, Ansible, Docker, Grafana, Prometheus + test branch and main + Advanced documentation + Dashboard and Basic Alerts | Advanced Deployment, infrastructure in hand and everything automated | 5000€ | 25-45 days |
 
----
+
+### 🚀 Goal focus (millestones)
+
+Each project is divided into clear phases, with verifiable deliverables. This way the client can see progress, validate results and have full control of progress.
+
+### ***terraform with docker (800 €)***
+
+ 🟢 Initial infrastructure (Terraform) → Creation of RG, network and VM in Azure. --> 1-2 days
+
+ 🟢 Provisioning (Ansible) → Basic VM configuration and Docker installation. --> 1-2 days
+
+ 🟢 Service deployment → Base application running in containers. --> 1-2 days
+
+ 🟢 Documentation → README with commands to reproduce the infrastructure. --> 1 day
+
+ 
+
+
+
+
+
 
 ### **2️⃣ Automation with Ansible**  
 | ⚙ Service | 📄 Short Description | 💰 From (€) | 📦 Delivery |
