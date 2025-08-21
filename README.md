@@ -26,8 +26,8 @@ Por eso combino herramientas como Terraform, Ansible y Github Actions, y me invo
 | -----------------------------------------------------------------      | ----------------------------------------------------------------------------------  | ---------    | --------------- |
 | Terraform solo                                                         | Despliegue de solo maquina virtual                                                  | 200 €        |     1-2 días    |   
 | Terraform con Docker                                                       | Terraform (RG, VNet, VM, NSG) + Docker mediante Ansible (.yml editables)            | 800 €        |     5-7 días    |
-| Despliegue basico (Terraform, Github OIDC, Despliege Docker con Ansible)                  | Despliegue de VM, permiso OIDC Azure para backend remoto + Docker                   | 950€         |     6-9 días    |
-| Despliegue controlado (Terraform, Github Actions, OIDC, plan en PR, apply en main)             | Despliegue organizado VM, permiso OIDC azure, Github actions aplicada en rama main  | 1200€        |     7-10 días   |
+| Despliegue basico (Terraform, Github OIDC, Despliege Docker con Ansible)                  | Despliegue de VM, permiso OIDC Azure para backend remoto + Docker                   | 950€         |     6-10 días    |
+| Despliegue controlado (Terraform, Github Actions, OIDC, plan en PR, apply en main)             | Despliegue organizado VM, permiso OIDC azure, Github actions aplicada en rama main  | 1200€        |     8-12 días   |
 | Despliegue completo (Terraform + Actions + OIDC + Docker + Grafana + Prometheus)       | Infraestructura llave en mano, automatizada y segura                                | 2800€        |     10-15 días  |
 | Despliegue avanzado (terraform + Actions + OIDC + Ansible + Docker + Grafana + Prometheus + rama prueba y main + Documentacion avanzada + Dashboard y Alertas básicas | Despliegue Avanzado, infraestructura en mano y todo automatizado | 5000€ | 25-45 días
 
