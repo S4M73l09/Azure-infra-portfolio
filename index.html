@@ -11,47 +11,124 @@
   :root{
     --bg:#0b0e14; --txt:#e2e8f0; --muted:#9aa4b2;
     --btn-bg:#1e293b; --btn-hover:#334155; --shadow:0 4px 12px rgba(0,0,0,.35);
-    --accent:#22c55e; --accent2:#2563eb;
+    --accent:#22c55e; --accent2:#2563eb; --info:#38bdf8; --ok:#22c55e; --warn:#f59e0b;
   }
   *{box-sizing:border-box}
-  body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
-       background:linear-gradient(180deg,#0b0e14,#0b0e14 40%,#0f172a);color:var(--txt);}
-  header{position:sticky;top:0;z-index:50;backdrop-filter:saturate(140%) blur(10px);
-         background:rgba(11,14,20,.75);border-bottom:1px solid rgba(255,255,255,.06);}
-  .bar{max-width:1100px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
-  .logo{font-weight:800;font-size:1.15rem}
-  .lang-switch{display:flex;gap:10px;align-items:center}
-  .chip{padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.15);
-        background:transparent;color:var(--txt);cursor:pointer;font-weight:600;
-        transition:transform .08s ease, background .2s, border-color .2s;}
-  .chip:hover{transform:translateY(-1px);border-color:rgba(255,255,255,.35)}
-  .chip.active{background:linear-gradient(135deg,var(--accent2),var(--accent));border-color:transparent}
-  .wrap{max-width:1100px;margin:0 auto;padding:88px 20px 24px}
-  .content{background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01));
-           border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:24px;
-           box-shadow:var(--shadow);line-height:1.8;}
+  body{
+    margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+    background:linear-gradient(180deg,#0b0e14,#0b0e14 40%,#0f172a); color:var(--txt);
+  }
+
+  /* Header fijo */
+  header{
+    position:sticky; top:0; z-index:50; backdrop-filter:saturate(140%) blur(10px);
+    background:rgba(11,14,20,.75); border-bottom:1px solid rgba(255,255,255,.06);
+  }
+  .bar{
+    max-width:1100px; margin:0 auto; padding:14px 20px;
+    display:flex; align-items:center; justify-content:space-between; gap:12px;
+  }
+  .left{display:flex; align-items:center; gap:12px}
+  .logo{font-weight:800; font-size:1.15rem}
+  .btn-small{
+    padding:8px 12px; border-radius:10px; border:1px solid rgba(255,255,255,.15);
+    background:transparent; color:var(--txt); cursor:pointer; font-weight:600;
+    transition:transform .08s ease, background .2s, border-color .2s;
+  }
+  .btn-small:hover{transform:translateY(-1px); border-color:rgba(255,255,255,.35)}
+  .btn-primary{background:linear-gradient(135deg,var(--accent2),var(--accent)); border-color:transparent}
+  .lang-switch{display:flex; gap:10px; align-items:center}
+  .chip{
+    padding:8px 12px; border-radius:999px; border:1px solid rgba(255,255,255,.15);
+    background:transparent; color:var(--txt); cursor:pointer; font-weight:600;
+    transition:transform .08s ease, background .2s, border-color .2s;
+  }
+  .chip:hover{transform:translateY(-1px); border-color:rgba(255,255,255,.35)}
+  .chip.active{background:linear-gradient(135deg,var(--accent2),var(--accent)); border-color:transparent}
+
+  .wrap{max-width:1100px; margin:0 auto; padding:88px 20px 24px}
+  .content{
+    background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01));
+    border:1px solid rgba(255,255,255,.08); border-radius:18px; padding:24px;
+    box-shadow:var(--shadow); line-height:1.8;
+  }
   .content a{color:#93c5fd}
   .content h1,.content h2,.content h3{scroll-margin-top:90px}
-  .content table{width:100%;border-collapse:separate;border-spacing:0}
-  .content th,.content td{border:1px solid rgba(255,255,255,.15);padding:14px 12px;line-height:1.6;vertical-align:top}
+
+  /* Tablas cómodas */
+  .content table{width:100%; border-collapse:separate; border-spacing:0}
+  .content th,.content td{
+    border:1px solid rgba(255,255,255,.15); padding:14px 12px; line-height:1.6; vertical-align:top;
+  }
   .content tr:nth-child(2n){background:rgba(255,255,255,.03)}
-  .content code{background:#0f172a;border:1px solid rgba(255,255,255,.08);padding:.2em .35em;border-radius:6px}
-  .content pre{overflow:auto;background:#0f172a;border:1px solid rgba(255,255,255,.08);padding:12px;border-radius:12px}
-  .highlight-project{margin:16px 0 6px;padding:12px 14px;background:rgba(255,255,255,.05);
-                     border-left:4px solid #38bdf8;border-radius:12px;display:flex;gap:10px;align-items:center;line-height:1.6}
-  .highlight-project a{color:#38bdf8;text-decoration:underline}
-  .highlight-project a:hover{opacity:.9}
-  footer{margin-top:20px;text-align:center;color:var(--muted)}
-  .contact-buttons{margin-top:10px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-  .btn{display:inline-block;padding:8px 14px;border-radius:8px;text-decoration:none;font-weight:600;
-       background:var(--btn-bg);color:var(--txt);box-shadow:var(--shadow);transition:background .2s, transform .08s ease}
-  .btn:hover{background:var(--btn-hover);transform:translateY(-1px)}
+  .content code{background:#0f172a; border:1px solid rgba(255,255,255,.08); padding:.2em .35em; border-radius:6px}
+  .content pre{overflow:auto; background:#0f172a; border:1px solid rgba(255,255,255,.08); padding:12px; border-radius:12px}
+
+  /* Bloque proyecto destacado */
+  .highlight-project{
+    margin:16px 0 6px; padding:12px 14px;
+    background:rgba(255,255,255,.05);
+    border-left:4px solid var(--info); border-radius:12px;
+    display:flex; gap:10px; align-items:center; line-height:1.6;
+  }
+  .link-btn{
+    background:none; border:none; padding:0; margin:0 0 0 4px;
+    color:var(--info); text-decoration:underline; cursor:pointer; font:inherit;
+  }
+  .link-btn:hover{opacity:.9}
+
+  footer{margin-top:20px; text-align:center; color:var(--muted)}
+  .contact-buttons{margin-top:10px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
+  .btn{
+    display:inline-block; padding:8px 14px; border-radius:8px; text-decoration:none; font-weight:600;
+    background:var(--btn-bg); color:var(--txt); box-shadow:var(--shadow);
+    transition:background .2s, transform .08s ease;
+  }
+  .btn:hover{background:var(--btn-hover); transform:translateY(-1px)}
+
+  /* Drawer de proyectos */
+  .backdrop{
+    position:fixed; inset:0; background:rgba(0,0,0,.45); opacity:0; pointer-events:none;
+    transition:opacity .2s; z-index:60;
+  }
+  .backdrop.open{opacity:1; pointer-events:auto}
+  .drawer{
+    position:fixed; top:0; right:0; height:100%; width:min(420px,92vw);
+    background:rgba(14,18,27,.98); border-left:1px solid rgba(255,255,255,.08);
+    box-shadow:-8px 0 24px rgba(0,0,0,.45);
+    transform:translateX(100%); transition:transform .25s ease; z-index:61;
+    display:flex; flex-direction:column;
+  }
+  .drawer.open{transform:translateX(0)}
+  .drawer header{position:static; backdrop-filter:none; background:transparent; border:none}
+  .drawer-head{display:flex; align-items:center; justify-content:space-between; padding:16px 18px; border-bottom:1px solid rgba(255,255,255,.08)}
+  .drawer-title{font-weight:800}
+  .drawer-body{padding:14px; overflow:auto}
+  .proj-list{display:grid; gap:12px}
+  .card{
+    border:1px solid rgba(255,255,255,.1); border-radius:14px; padding:12px;
+    background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01));
+  }
+  .card h4{margin:0 0 6px 0; font-size:1rem}
+  .meta{display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:6px}
+  .badge{
+    font-size:.75rem; padding:4px 8px; border-radius:999px; border:1px solid rgba(255,255,255,.12);
+  }
+  .done{background:rgba(34,197,94,.15); border-color:rgba(34,197,94,.4)}
+  .wip{background:rgba(245,158,11,.15); border-color:rgba(245,158,11,.4)}
+  .stack{display:flex; gap:6px; flex-wrap:wrap}
+  .stack .tag{font-size:.75rem; padding:4px 8px; border-radius:8px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12)}
+  .actions{display:flex; gap:10px; margin-top:8px}
+  .link{color:#93c5fd; text-decoration:underline}
 </style>
 </head>
 <body>
   <header>
     <div class="bar">
-      <div class="logo" id="logo">Azure Infra Portfolio</div>
+      <div class="left">
+        <div class="logo" id="logo">Azure Infra Portfolio</div>
+        <button id="btn-projects" class="btn-small">📁 Proyectos</button>
+      </div>
       <div class="lang-switch" role="group" aria-label="Selector de idioma">
         <button class="chip" id="chip-es" type="button" aria-pressed="true">ES</button>
         <button class="chip" id="chip-en" type="button" aria-pressed="false">EN</button>
@@ -65,39 +142,100 @@
     <footer>
       © <span id="year"></span> — Portfolio DevOps & Cloud
       <div class="contact-buttons">
-        <a class="btn" id="gmail-btn" target="_blank">📧 Abrir en Gmail</a>
+        <a class="btn" id="gmail-btn" target="_blank" rel="noopener noreferrer">📧 Abrir en Gmail</a>
         <a class="btn" id="mailto-btn">✉️ Contactar por correo</a>
-        <a class="btn" id="github-btn" target="_blank">🐙 GitHub</a>
-        <a class="btn" id="linkedin-btn" target="_blank">💼 LinkedIn</a>
-        <a class="btn" id="project-btn" target="_blank">📂 Ver repositorio del proyecto</a>
+        <a class="btn" id="github-btn" target="_blank" rel="noopener noreferrer">🐙 GitHub</a>
+        <a class="btn" id="linkedin-btn" target="_blank" rel="noopener noreferrer">💼 LinkedIn</a>
+        <!-- Eliminado el botón del repo del proyecto -->
       </div>
     </footer>
   </div>
 
+  <!-- Drawer de Proyectos -->
+  <div class="backdrop" id="backdrop"></div>
+  <aside class="drawer" id="drawer">
+    <div class="drawer-head">
+      <div class="drawer-title" id="drawer-title">Proyectos</div>
+      <button class="btn-small btn-primary" id="btn-close">✕</button>
+    </div>
+    <div class="drawer-body">
+      <div id="projects-desc" style="color:var(--muted); margin:0 0 10px 2px;"></div>
+      <div class="proj-list" id="proj-list"></div>
+    </div>
+  </aside>
+
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script>
     /* ====== TUS DATOS ====== */
-    const email         = "mailto:saminfradevops@gmail.com";                 // <- pon tu correo
-    const githubURL     = "https://github.com/S4M73l09";                    // <- tu GitHub
-    const linkedinURL   = "https://www.linkedin.com/in/samuelillobaby/";   // <- tu LinkedIn
-    const projectRepoURL= "https://github.com/S4M73l09/ProyectoServer";   // <- repo proyecto
+    const email       = "saminfradevops@gmail.com";                 // <- tu correo
+    const githubURL   = "https://github.com/S4M73l09";          // <- tu GitHub
+    const linkedinURL = "https://www.linkedin.com/in/samuelillobaby/";      // <- tu LinkedIn
 
-    // Botones footer (usar getElementById, NUNCA variables con guiones)
-    const gmailBtn   = document.getElementById('gmail-btn');
-    const mailtoBtn  = document.getElementById('mailto-btn');
-    const githubBtn  = document.getElementById('github-btn');
-    const linkedinBtn= document.getElementById('linkedin-btn');
-    const projectBtn = document.getElementById('project-btn');
+    // Año automático
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-    gmailBtn.href   = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}`;
-    mailtoBtn.href  = `mailto:${email}`;
-    githubBtn.href  = githubURL;
-    linkedinBtn.href= linkedinURL;
-    projectBtn.href = projectRepoURL;
+    // Footer links
+    document.getElementById('gmail-btn').href    = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}`;
+    document.getElementById('mailto-btn').href   = `mailto:${email}`;
+    document.getElementById('github-btn').href   = githubURL;
+    document.getElementById('linkedin-btn').href = linkedinURL;
 
+    // Idioma y UI
     const chipEs = document.getElementById('chip-es');
     const chipEn = document.getElementById('chip-en');
     const contentEl = document.getElementById('content');
+    const btnProjects = document.getElementById('btn-projects');
+    const drawer = document.getElementById('drawer');
+    const backdrop = document.getElementById('backdrop');
+    const drawerTitle = document.getElementById('drawer-title');
+    const projectsDesc = document.getElementById('projects-desc');
+    const projListEl = document.getElementById('proj-list');
+    const btnClose = document.getElementById('btn-close');
+
+    // Datos de proyectos (edítalos a tu gusto)
+    const PROJECTS = [
+      {
+        name: "Proyecto Server automatico con jellyfin",
+        repo: "https://github.com/S4M73l09/ProyectoServer",
+        demo: "",
+        status: "done",
+        stack: ["Terraform","Github Actions","Ansible","Docker","Azure","Grafana","Prometheus","WireGuard"],
+        es: {desc: "Infraestructura IaC en Azure con automatización de despliegue y monitorización."},
+        en: {desc: "Infrastructure as Code on Azure with automated deployment and monitoring."}
+      },
+      {
+        name: "Observabilidad-Orquestacion",
+        repo: "https://github.com/S4M73l09/Obversabilidad-Obversility",
+        demo: "",
+        status: "wip",
+        stack: ["Terraform","Azure OIDC","Github Actions","Ansible","Docker","Grafana","Prometheus."],
+        es: {desc: "Servidor con despliegue automatizado, dockerizado, enfocando en buenas prácticas y mantenimiento."},
+        en: {desc: "Dockerized media server focusing on best practices and maintainability."}
+      }
+    ];
+
+    const I18N = {
+      es: {
+        projects: "Proyectos",
+        projectsDesc: "Terminado y en curso. Haz clic para ver código o demo.",
+        done: "Terminado",
+        wip: "En curso",
+        viewRepo: "Ver repo",
+        viewDemo: "Ver demo",
+        calloutText: "👉 ¿Quieres ver mis habilidades en acción?",
+        calloutLink: "Ver mis proyectos"
+      },
+      en: {
+        projects: "Projects",
+        projectsDesc: "Completed and in progress. Click to see code or demo.",
+        done: "Completed",
+        wip: "In progress",
+        viewRepo: "View repo",
+        viewDemo: "View demo",
+        calloutText: "👉 Want to see my skills in action?",
+        calloutLink: "View my projects"
+      }
+    };
 
     function setDocLang(lang){
       document.documentElement.lang = (lang==='en') ? 'en' : 'es';
@@ -106,6 +244,11 @@
       chipEn.classList.toggle('active', lang==='en');
       chipEs.setAttribute('aria-pressed', lang==='es');
       chipEn.setAttribute('aria-pressed', lang==='en');
+
+      // UI textos
+      btnProjects.textContent = (lang==='en') ? "📁 Projects" : "📁 Proyectos";
+      drawerTitle.textContent = I18N[lang].projects;
+      projectsDesc.textContent = I18N[lang].projectsDesc;
     }
 
     function updateUrl(lang){
@@ -114,22 +257,53 @@
       history.replaceState({}, '', url);
     }
 
+    // Callout que ABRE el drawer de proyectos
     function injectProjectCallout(lang){
-      const text = (lang==='en')
-        ? '👉 Want to see my skills in action? '
-        : '👉 ¿Quieres ver mis habilidades en acción? ';
-      const linkText = (lang==='en')
-        ? 'Click here to view the project repository'
-        : 'Haz clic aquí para ver el repositorio del proyecto';
       const callout = document.createElement('div');
       callout.className = 'highlight-project';
-      callout.innerHTML = `${text}<a href="${projectRepoURL}" target="_blank" rel="noopener">${linkText}</a>`;
+      callout.innerHTML = `
+        ${I18N[lang].calloutText}
+        <button class="link-btn" id="open-projects-from-callout">${I18N[lang].calloutLink}</button>
+      `;
       const firstHr = contentEl.querySelector('hr');
       const firstP  = contentEl.querySelector('p');
       if (firstHr) firstHr.parentNode.insertBefore(callout, firstHr);
       else if (firstP) firstP.parentNode.insertBefore(callout, firstP.nextSibling);
       else contentEl.prepend(callout);
+
+      // Listener para abrir el drawer
+      document.getElementById('open-projects-from-callout')
+        .addEventListener('click', openDrawer);
     }
+
+    function renderProjects(lang){
+      projListEl.innerHTML = "";
+      PROJECTS.forEach(p=>{
+        const card = document.createElement('div');
+        card.className = 'card';
+        const badgeClass = (p.status==='done') ? 'badge done' : 'badge wip';
+        const badgeText  = (p.status==='done') ? I18N[lang].done : I18N[lang].wip;
+
+        const stackTags = p.stack.map(s=>`<span class="tag">${s}</span>`).join(' ');
+        const repoBtn = p.repo ? `<a class="link" href="${p.repo}" target="_blank" rel="noopener">${I18N[lang].viewRepo}</a>` : '';
+        const demoBtn = p.demo ? `<a class="link" href="${p.demo}" target="_blank" rel="noopener">${I18N[lang].viewDemo}</a>` : '';
+
+        card.innerHTML = `
+          <h4>${p.name}</h4>
+          <div class="meta">
+            <span class="${badgeClass}">${badgeText}</span>
+          </div>
+          <div class="desc">${p[lang].desc}</div>
+          <div class="stack" style="margin-top:8px">${stackTags}</div>
+          <div class="actions">${repoBtn} ${demoBtn}</div>
+        `;
+        projListEl.appendChild(card);
+      });
+    }
+
+    // Drawer handlers
+    function openDrawer(){ backdrop.classList.add('open'); drawer.classList.add('open'); }
+    function closeDrawer(){ backdrop.classList.remove('open'); drawer.classList.remove('open'); }
 
     async function loadLang(lang){
       const file = (lang==='en') ? 'README.en.md' : 'README.md';
@@ -140,25 +314,30 @@
         const res = await fetch(file, {cache:'no-store'});
         if(!res.ok) throw new Error('No se pudo cargar ' + file);
         let md = await res.text();
-        // Oculta la sección de contacto del README (si la marcas con estos comentarios):
-        // <!--contact-section-start--> ... <!--contact-section-end-->
+        // Oculta la sección de contacto del README:
         md = md.replace(/<!--contact-section-start-->[\s\S]*?<!--contact-section-end-->/, '');
         marked.setOptions({gfm:true, breaks:true});
         contentEl.innerHTML = marked.parse(md);
         injectProjectCallout(lang);
+        renderProjects(lang);
         window.scrollTo({top:0, behavior:'smooth'});
       }catch(e){
         contentEl.innerHTML = '<p style="color:#fca5a5">'+e.message+'</p>';
       }
     }
 
+    // Eventos
     chipEs.addEventListener('click', ()=>loadLang('es'));
     chipEn.addEventListener('click', ()=>loadLang('en'));
+    btnProjects.addEventListener('click', openDrawer);
+    document.getElementById('btn-close').addEventListener('click', closeDrawer);
+    backdrop.addEventListener('click', closeDrawer);
+    window.addEventListener('keydown', e=>{ if(e.key==='Escape') closeDrawer(); });
 
+    // Idioma inicial
     const params = new URLSearchParams(location.search);
     const initial = (params.get('lang') || localStorage.getItem('lang') || 'es').toLowerCase();
     loadLang(initial);
-    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
