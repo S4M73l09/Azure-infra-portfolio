@@ -48,11 +48,59 @@ Each project is divided into clear phases, with verifiable deliverables. This wa
 
  🟢 Documentation → README with commands to reproduce the infrastructure. --> 1 day
 
+### ***Basic deployment (950€)***
+
+ 🟢 Creation of OIDC certification + Backend.tf for terraform. --> 2-3 days
+
+ 🟢 Connection to Github Actions and creation of repository. --> 1-2 days
+
+ 🟢 Initial Infrastructure (Terraform) -> Creation of RG, network and VM in Azure. --> 1-2 days
+
+ 🟢 Docker deployment with Ansible, plus .yml in the repository. --> 2-2 days
+
+ 🟢 Documentacion tecnica --> 1 día
+
+### ***Despliegue controlado (1200€)***
+
+ 🟢 Creation of repository in git. --> 1 day
  
+ 🟢 Creation of OIDC certification + remote backend.tf. 1-2 days
 
+ 🟢 Initial infrastructure (terraform) --> Creation of all necessary resources. 1-2 days
 
+ 🟢 Docker deployment with container ready --> 2 days
 
+ 🟢 Configuration of Grafana and Prometheus --> 1-2 days
 
+ 🟢 Documentation delivered --> 1 day
+
+### ***Complete deployment (2800€)***
+
+🟢 Creation of repository in git. --> 1-2 days
+
+🟢 Creation of OIDC certification + remote backend.tf in github Actions --> 2-3 days
+
+🟢 Initial infrastructure (terraform) - Creation of all necessary resources --> 2-4 days
+
+🟢 Docker deployment with Grafana + Prometheus container --> 1-4 days
+
+🟢 Graphane Configuration + Prometheus --> 1-3 days
+
+🟢 Documentation delivered --> 1-2 days
+
+### ***Advanced deployment (5000€)***
+
+🟢 Repository creation, two complementary branches, main branch + test branch --> 2-3 days
+
+🟢 Creation of OIDC certification + remote backend.tf in github Actions --> 3-4 days
+
+🟢 Initial infrastructure (terraform) + test branch that scales in the main branch --> 5-10 days
+
+🟢 Using Ansible to create Docker, Grafana container and Prometheus --> 10-15 days
+
+🟢 Configuration of Alerts and client dashboard --> 5-8 days
+
+Of course, each project will be appropriate to the needs of what the client wants, varying time and payment. Payment can be made for each goal achieved for better time and work management.
 
 
 ### **2️⃣ Automation with Ansible**  
