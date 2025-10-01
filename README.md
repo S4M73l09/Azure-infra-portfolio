@@ -1,9 +1,13 @@
 
 
-# Azure-infra-portfolio
+# S4M73l09-infra-portfolio
 
+Hola, soy Samuel. **DevOps** en Azure: automatizo infraestructura con Terraform + Ansible y despliegues con GitHub Actions, dejando todo observable con Prometheus/Grafana.
+Aprendí montando y rompiendo en labs y proyectos reales; hoy trabajo para que los entornos sean reproducibles, seguros y documentados.
 
-### Portfolio tecnico como freelance DevOps especializado en automatización de infraestructura con Terraform, Ansible y despliegue en Azure.
+Enlaces de contacto abajo
+
+### Portfolio tecnico como freelance DevOps especializado en automatización de infraestructura con Terraform, Ansible y despliegue en **CLoud**.
 -------------------------------------------------------
 ## 🎯 ¿Por qué ofrezco estos servicios?
 
@@ -24,18 +28,18 @@ Por eso combino herramientas como Terraform, Ansible y Github Actions, y me invo
 
 |🚀Servicio                                                              |📄Descripción breve                                                                 |💰Desde (€)   |⏱Tiempo estimado 
 | -----------------------------------------------------------------      | ----------------------------------------------------------------------------------  | ---------    | --------------- |
-| Terraform solo                                                         | Despliegue de solo maquina virtual                                                  | 200 €        |     1-2 días    |   
-| Terraform con Docker                                                       | Terraform (RG, VNet, VM, NSG) + Docker mediante Ansible (.yml editables)            | 800 €        |     5-7 días    |
-| Despliegue basico (Terraform, Github OIDC, Despliege Docker con Ansible)                  | Despliegue de VM, permiso OIDC Azure para backend remoto + Docker                   | 950€         |     6-10 días    |
-| Despliegue controlado (Terraform, Github Actions, OIDC, plan en PR, apply en main)             | Despliegue organizado VM, permiso OIDC azure, Github actions aplicada en rama main  | 1200€        |     8-12 días   |
-| Despliegue completo (Terraform + Actions + OIDC + Docker + Grafana + Prometheus)       | Infraestructura llave en mano, automatizada y segura                                | 2800€        |     10-15 días  |
-| Despliegue avanzado (terraform + Actions + OIDC + Ansible + Docker + Grafana + Prometheus + rama prueba y main + Documentacion avanzada + Dashboard y Alertas básicas | Despliegue Avanzado, infraestructura en mano y todo automatizado | 5000€ | 25-45 días
+| Terraform solo                                                         | Despliegue de solo maquina virtual (RG, VM, NSG + necesario)                        | 400 - 750€   |     1-2 días    |   
+| Terraform con Docker                                                       | Terraform (RG, VNet, VM, NSG) + Docker mediante Ansible (.yml editables)        | 800 - 1200€  |     5-7 días    |
+| Despliegue basico (Terraform, Github OIDC, Despliege Docker con Ansible)                  | Despliegue de VM, permiso OIDC Azure para backend remoto + Docker| 900 - 1300€         |     6-10 días    |
+| Despliegue controlado (Terraform, Github Actions, OIDC, plan en PR, apply en main)             | Despliegue organizado VM, permiso OIDC azure, Github actions aplicada en rama main  | 1200 - 1500€        |     8-12 días   |
+| Despliegue completo (Terraform + Actions + OIDC + Docker + Grafana + Prometheus)       | Infraestructura llave en mano, automatizada y segura                                | 2800 - 3000€        |     10-15 días  |
+| Despliegue avanzado (terraform + Actions + OIDC + Ansible + Docker + Grafana + Prometheus + rama prueba y main + Documentacion avanzada + Dashboard y Alertas básicas | Despliegue Avanzado, infraestructura en mano y todo automatizado | 5000 - 5600€ | 25-45 días
 
 ### 🚀 Enfoque por metas (milestones)
 
 Cada proyecto se divide en fases claras, con entregables verificables. De esta forma el cliente puede ver avances, validar resultados y tener control total del progreso.
 
-### ***terraform con docker (800 €)***
+### ***terraform con docker (800 - 1200€)***
 
   🟢 Infraestructura inicial (Terraform) → Creación de RG, red y VM en Azure. --> 1-2 días
 
@@ -45,7 +49,7 @@ Cada proyecto se divide en fases claras, con entregables verificables. De esta f
 
   🟢 Documentación → README con comandos para reproducir la infraestructura. --> 1 día
 
-### ***Despliege basico (950€)***
+### ***Despliege basico (900 - 1300€)***
 
   🟢 Creación de certificacion OIDC + Backend.tf para terraform. --> 2-3 días
  
@@ -57,7 +61,7 @@ Cada proyecto se divide en fases claras, con entregables verificables. De esta f
 
   🟢 Documentacion tecnica --> 1 día
 
-### ***Despliegue controlado (1200€)***
+### ***Despliegue controlado (1200 - 1500€)***
 
   🟢 Creacion de repositorio en git. 1 día
 
@@ -71,7 +75,7 @@ Cada proyecto se divide en fases claras, con entregables verificables. De esta f
 
   🟢 Documentacion entregada --> 1 día
 
-### ***Despliege completo (2800€)***
+### ***Despliege completo (2800 - 3000€)***
 
   🟢 Creacion de repositorio en git. --> 1-2 días
   
@@ -86,7 +90,7 @@ Cada proyecto se divide en fases claras, con entregables verificables. De esta f
   🟢 Documentacion entregada --> 1-2 días
   
 
-### ***Despliegue avanzado (5000€)***
+### ***Despliegue avanzado (5000 - 5600€)***
 
   🟢 Creacion de repositorio, dos ramas complementarias, rama main + rama prueba --> 2-3 días
 
@@ -100,7 +104,23 @@ Cada proyecto se divide en fases claras, con entregables verificables. De esta f
   
 Por supuesto, cada proyecto sera adecuado a las necesidades de lo que quiera el cliente, variando tiempo y pago. El pago se puede hacer por cada meta alcanzada para una mejor administracion de tiempo y trabajo.
 
-## 2️⃣ Automatización con Ansible
+## 2️⃣ Creacion de pipelines personalizables (Sube precio en funcion a mas modulos)
+
+|⚙ Servicio                     |📄 Descriptión breve               |💰 Precio desde |⏱ Entrega
+|------------------------------ | ---------------------------------- | -------------- | --------|
+|Pipelines de OIDC Azure        | Pipeline con OIDC preparado para Azure | 560€       | 2-3 días |
+|Iac Azure                      | Github--> Azure, backend remoto en storage, apply solo en environment protegido | 900 - 1400€ | 4-5 días |
+|Observabilidad (Grafana and Prometheus) | Pipeline que levanta Prometheus + Grafana (Docker-compose), importa dashboard y reglas de alerta base | 1100 - 1200€ | 2-3 días |
+|Windows Server Scripts | Entrega de Scripts personalizados en funcion al cliente (Creacion de dominio) | 400 - 800€ | 3-4 días | 
+|Pipeline personalizado | Pipeline personalizado en funcion a lo que usted quiera | En funcion de modulos | 1-? días |
+
+El precio puede aumentar en funcion a los modulos que se requieran por el cliente, pero jamas superaran el limite maximo del precio sin tu aprobación previa.
+
+Para orientar: **Iac Azure** -- desde 900€ (techo orientativo 1400€).
+Nunca superaré el techo sin tu aprobación previa. Cambios fuera de alcance se presupuestan a 410 €/dia.
+
+
+## 3️⃣ Automatización con Ansible
 
 |⚙ Servicio                                       |📄 Descripción breve                                       |💰 Precio desde  |⏱ Entrega 
 | ----------------------------------------------- | ---------------------------------------------------------- | --------------- | --------- |
@@ -108,7 +128,7 @@ Por supuesto, cada proyecto sera adecuado a las necesidades de lo que quiera el 
 | Rotación automática de secretos (Azure)         | Renovación periódica de credenciales para máxima seguridad | 350 €           | 2–3 días  |
 | Playbook avanzado de seguridad (VPN + Firewall) | Configuración y reglas de firewall optimizadas para VPN    | 300 €           | 2–3 días  |
 
-## 3️⃣ Redes y Seguridad
+## 4️⃣ Redes y Seguridad
 
 |🔒 Servicio                                 |📄 Descripción breve                                    |💰 Precio desde  |⏱ Entrega 
 | ------------------------------------------ | ------------------------------------------------------- | --------------- | --------- |
@@ -116,20 +136,20 @@ Por supuesto, cada proyecto sera adecuado a las necesidades de lo que quiera el 
 | Configuración avanzada de firewall con VPN | Restricción de tráfico y reglas personalizadas para VPN | 250 €           | 2–3 días  |
 
 
-## 4️⃣ Administracion de sistemas
+## 5️⃣ Administracion de sistemas
 
 |🖥 Servicio                        |📄 Descripción breve                                    |💰 Precio desde  |⏱ Entrega 
 | --------------------------------- | ------------------------------------------------------ | --------------- | --------- |
 | Configuración Windows Server (AD) | Configuración, Active Directory, usuarios y permisos   | 200 €           | 1–2 días  |
 | Configuración Linux con LDAP      | Integración LDAP para gestión centralizada de usuarios | 200 €           | 1–2 días  |
 
-## 5️⃣ Monitorizacion y Observabilidad
+## 6️⃣ Monitorizacion y Observabilidad
 
 |📊 Servicio                            |📄 Descripción breve                            |💰 Precio desde  |⏱ Entrega 
 | ------------------------------------- | ----------------------------------------------- | --------------- | --------- |
 | Monitorización con Grafana/Prometheus | Métricas, alertas y paneles para observabilidad | 300 €           | 2–3 días  |
 
-## 6️⃣ Soporte y mantenimiento
+## 7️⃣ Soporte y mantenimiento
 
 | 🛠 Servicio                  | 📄 Descripción breve                            | 💰 Precio desde | ⏱ Entrega     |
 | ---------------------------- | ----------------------------------------------- | --------------- | ------------- |
