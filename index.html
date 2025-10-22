@@ -2,158 +2,126 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>S4M73l09 Portfolio — ES</title>
-  <meta name="description" content="Portfolio DevOps & Cloud: Terraform, Ansible, Azure, CI/CD, Observabilidad." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>S4M73l09 Portfolio</title>
+  <meta name="description" content="Portfolio DevOps & Cloud: Terraform, Ansible, Azure, CI/CD y Observabilidad." />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    :root{ --bg:#0b0e14; --txt:#e2e8f0; --muted:#9aa4b2; --btn-bg:#1e293b; --btn-hover:#334155; --info:#38bdf8 }
-    *{box-sizing:border-box}
-    body{ margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; background:#0b0e14; color:var(--txt) }
-    header{ position:sticky; top:0; z-index:50; backdrop-filter:saturate(140%) blur(10px); background:rgba(11,14,20,.8); border-bottom:1px solid rgba(255,255,255,.06) }
-    .bar{ max-width:1100px; margin:0 auto; padding:14px 20px; display:flex; align-items:center; justify-content:space-between; gap:12px }
-    .left{ display:flex; align-items:center; gap:12px }
-    .logo{ font-weight:800; font-size:1.05rem }
-    .btn-small{ padding:8px 12px; border-radius:10px; border:1px solid rgba(255,255,255,.15); background:transparent; color:var(--txt); cursor:pointer; font-weight:600 }
-    .btn-small:hover{ border-color:rgba(255,255,255,.35) }
-    .lang-switch{ display:flex; gap:10px; align-items:center }
-    .chip{ padding:8px 12px; border-radius:999px; border:1px solid rgba(255,255,255,.15); background:transparent; color:var(--txt); cursor:pointer; font-weight:600 }
-    .chip.active{ background:rgba(37,99,235,.4); border-color:transparent }
-    .wrap{ max-width:1100px; margin:0 auto; padding:88px 20px 24px }
-    .content{ background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01)); border:1px solid rgba(255,255,255,.08); border-radius:18px; padding:24px; line-height:1.8 }
-    .content a{ color:#93c5fd }
-    footer{ margin-top:20px; text-align:center; color:var(--muted) }
-    .contact-buttons{ margin-top:10px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap }
-    .btn{ display:inline-block; padding:8px 14px; border-radius:8px; text-decoration:none; font-weight:600; background:#1e293b; color:var(--txt) }
-    .btn:hover{ background:#334155 }
-    .backdrop{ position:fixed; inset:0; background:rgba(0,0,0,.45); opacity:0; pointer-events:none; transition:opacity .2s; z-index:60 }
-    .backdrop.open{ opacity:1; pointer-events:auto }
-    .drawer{ position:fixed; top:0; right:0; height:100%; width:min(420px,92vw); background:rgba(14,18,27,.98); border-left:1px solid rgba(255,255,255,.08); transform:translateX(100%); transition:transform .25s ease; z-index:61; display:flex; flex-direction:column }
-    .drawer.open{ transform:translateX(0) }
-    .drawer-head{ display:flex; align-items:center; justify-content:space-between; padding:16px 18px; border-bottom:1px solid rgba(255,255,255,.08) }
-    .proj-list{ display:grid; gap:12px }
+    :root{--bg:#0b0e14;--txt:#e2e8f0;--muted:#9aa4b2;--panel:#0f172a;--bd:rgba(255,255,255,.12);--glass:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01))}
+    *{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;background:var(--bg);color:var(--txt)}
+    header{position:sticky;top:0;z-index:10;backdrop-filter:saturate(140%) blur(8px);background:rgba(11,14,20,.8);border-bottom:1px solid rgba(255,255,255,.06)}
+    .bar{max-width:1100px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:12px}
+    .bar>div{display:flex;align-items:center;gap:10px}
+    .logo{font-weight:800}
+    .btn,.chip{padding:8px 12px;border:1px solid rgba(255,255,255,.15);border-radius:10px;background:transparent;color:inherit;font-weight:600;cursor:pointer;transition:.2s}
+    .btn:hover,.chip:hover{border-color:rgba(255,255,255,.35);transform:translateY(-1px)}
+    .chip.active{background:rgba(37,99,235,.35);border-color:transparent}
+    .wrap{max-width:1100px;margin:0 auto;padding:84px 20px 24px}
+    .card,.content{background:var(--glass);border:1px solid var(--bd);border-radius:16px}
+    .content{padding:22px;line-height:1.75}
+    .content a{color:#93c5fd}
+    .content table{width:100%;border-collapse:separate;border-spacing:0}
+    .content th,.content td{border:1px solid rgba(255,255,255,.15);padding:12px}
+    .content tr:nth-child(2n){background:rgba(255,255,255,.03)}
+    .content code{background:var(--panel);border:1px solid rgba(255,255,255,.08);padding:.15em .4em;border-radius:6px}
+    .content pre{overflow:auto;background:var(--panel);border:1px solid rgba(255,255,255,.08);padding:12px;border-radius:12px}
+    footer{margin-top:18px;text-align:center;color:var(--muted)}
+    .row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+    .link{display:inline-block;padding:8px 14px;border-radius:8px;text-decoration:none;font-weight:600;background:#1e293b;color:inherit}
+    .link:hover{background:#334155;transform:translateY(-1px)}
+    /* Drawer */
+    .backdrop{position:fixed;inset:0;background:rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:.2s}
+    .backdrop.open{opacity:1;pointer-events:auto}
+    .drawer{position:fixed;top:0;right:0;height:100%;width:min(420px,92vw);background:rgba(14,18,27,.98);border-left:1px solid var(--bd);transform:translateX(100%);transition:.25s;display:flex;flex-direction:column}
+    .drawer.open{transform:translateX(0)}
+    .drawer-head{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid var(--bd)}
+    .proj-list{display:grid;gap:12px;padding:12px}
+    .card{padding:12px}
+    .meta{display:flex;gap:8px;flex-wrap:wrap;margin:.25rem 0}
+    .badge{font-size:.75rem;padding:3px 8px;border-radius:999px;border:1px solid var(--bd)}
+    .done{background:rgba(34,197,94,.15);border-color:rgba(34,197,94,.4)}
+    .wip{background:rgba(245,158,11,.15);border-color:rgba(245,158,11,.4)}
   </style>
 </head>
 <body>
   <header>
     <div class="bar">
-      <div class="left">
-        <div class="logo" id="logo">S4M73l09 Infra Portfolio</div>
-        <button id="btn-projects" class="btn-small">📁 Proyectos</button>
-      </div>
-      <nav class="nav" aria-label="Site">
-        <button class="btn-small" id="btn-overview" aria-current="page">📄 Overview</button>
-        <button class="btn-small" id="btn-services">💼 Servicios</button>
-      </nav>
-      <div class="lang-switch" role="group" aria-label="Selector de idioma">
-        <button class="chip" id="chip-es" type="button" aria-pressed="true">ES</button>
-        <button class="chip" id="chip-en" type="button" aria-pressed="false">EN</button>
-      </div>
+      <div><div class="logo">S4M73l09 Infra Portfolio</div><button id="btn-projects" class="btn">📁 Proyectos</button></div>
+      <div style="margin-left:auto"><button id="btn-overview" class="btn" aria-current="page">📄 Overview</button><button id="btn-services" class="btn">💼 Servicios</button></div>
+      <div role="group" aria-label="Idioma"><button id="chip-es" class="chip active" aria-pressed="true">ES</button><button id="chip-en" class="chip" aria-pressed="false">EN</button></div>
     </div>
   </header>
 
   <div class="wrap">
-    <main class="content" id="content">Cargando contenido…</main>
-    <main class="content" id="services" hidden>Cargando servicios…</main>
-
+    <main id="content" class="content">Cargando contenido…</main>
+    <main id="services" class="content" hidden>Cargando servicios…</main>
     <footer>
       © <span id="year"></span> — Portfolio DevOps & Cloud
-      <div class="contact-buttons">
-        <a class="btn" id="gmail-btn" target="_blank" rel="noopener noreferrer">📧 Abrir en Gmail</a>
-        <a class="btn" id="mailto-btn">✉️ Contactar por correo</a>
-        <a class="btn" id="github-btn" target="_blank" rel="noopener noreferrer">🐙 GitHub</a>
-        <a class="btn" id="linkedin-btn" target="_blank" rel="noopener noreferrer">💼 LinkedIn</a>
+      <div class="row" style="margin-top:10px">
+        <a id="gmail-btn" class="link" target="_blank" rel="noopener">📧 Abrir en Gmail</a>
+        <a id="mailto-btn" class="link">✉️ Contacto</a>
+        <a id="github-btn" class="link" target="_blank" rel="noopener">🐙 GitHub</a>
+        <a id="linkedin-btn" class="link" target="_blank" rel="noopener">💼 LinkedIn</a>
       </div>
     </footer>
   </div>
 
-  <div class="backdrop" id="backdrop"></div>
-  <aside class="drawer" id="drawer">
-    <div class="drawer-head">
-      <div class="drawer-title" id="drawer-title">Proyectos</div>
-      <button class="btn-small" id="btn-close">✕</button>
-    </div>
-    <div class="drawer-body">
-      <div id="projects-desc" style="color:var(--muted); margin:0 0 10px 2px;"></div>
-      <div class="proj-list" id="proj-list"></div>
-    </div>
+  <div id="backdrop" class="backdrop"></div>
+  <aside id="drawer" class="drawer" aria-hidden="true">
+    <div class="drawer-head"><strong id="drawer-title">Proyectos</strong><button id="btn-close" class="btn">✕</button></div>
+    <div class="proj-list" id="proj-list"></div>
   </aside>
 
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script>
-    // ===== Ajustes básicos =====
-    var email       = 'saminfradevops@gmail.com';
-    var githubURL   = 'https://github.com/S4M73l09';
-    var linkedinURL = 'https://www.linkedin.com/in/samuelillobaby/';
+    // ===== Config =====
+    const email='saminfradevops@gmail.com', githubURL='https://github.com/S4M73l09', linkedinURL='https://www.linkedin.com/in/samuelillobaby/';
+    const $=sel=>document.querySelector(sel);
+    const S={es:{projects:'Proyectos',projectsDesc:'Terminado y en curso. Clic para ver código o demo.',done:'Terminado',wip:'En curso',repo:'Ver repo',demo:'Ver demo',tabO:'📄 Overview',tabS:'💼 Servicios'},
+             en:{projects:'Projects', projectsDesc:'Completed and in progress. Click to see code or demo.',done:'Completed',wip:'In progress',repo:'View repo',demo:'View demo',tabO:'📄 Overview',tabS:'💼 Services'}};
 
-    document.getElementById('year').textContent = new Date().getFullYear();
-    document.getElementById('gmail-btn').href  = 'https://mail.google.com/mail/?view=cm&fs=1&to=' + email;
-    document.getElementById('mailto-btn').href = 'mailto:' + email;
-    document.getElementById('github-btn').href = githubURL;
-    document.getElementById('linkedin-btn').href = linkedinURL;
+    // Footer + año
+    $('#year').textContent=new Date().getFullYear();
+    $('#gmail-btn').href=`https://mail.google.com/mail/?view=cm&fs=1&to=${email}`;
+    $('#mailto-btn').href=`mailto:${email}`;
+    $('#github-btn').href=githubURL;
+    $('#linkedin-btn').href=linkedinURL;
 
-    var chipEs = document.getElementById('chip-es');
-    var chipEn = document.getElementById('chip-en');
-    var contentEl = document.getElementById('content');
-    var servicesEl = document.getElementById('services');
-    var btnOverview = document.getElementById('btn-overview');
-    var btnServices = document.getElementById('btn-services');
+    // Proyectos
+    const PROJECTS=[
+      {name:'Proyecto Server automatico con jellyfin',repo:'https://github.com/S4M73l09/ProyectoServer',demo:'',status:'done',stack:['Terraform','Github Actions','Ansible','Docker','Azure','Grafana','Prometheus','WireGuard'],es:{desc:'Infraestructura IaC en Azure con automatización de despliegue y monitorización.'},en:{desc:'Infrastructure as Code on Azure with automated deployment and monitoring.'}},
+      {name:'Observabilidad-Orquestacion',repo:'https://github.com/S4M73l09/Obversabilidad-Obversility',demo:'',status:'wip',stack:['Terraform','Azure OIDC','Github Actions','Ansible','Docker','Grafana','Prometheus.'],es:{desc:'Servidor con despliegue automatizado, dockerizado, enfocando en buenas prácticas y mantenimiento.'},en:{desc:'Dockerized media server focusing on best practices and maintainability.'}},
+      {name:'Scripts Dominio Windows Core',repo:'https://github.com/S4M73l09/scripts-guia-windows',demo:'',status:'done',stack:['Windows','Github','Scripts','Powershell.'],es:{desc:'Scrips personalizables para creacion de Dominio de Windows Server Core.'},en:{desc:'Customizable windows Server core scripts.'}}
+    ];
 
-    function setDocLang(lang){
-      document.documentElement.lang = (lang==='en') ? 'en' : 'es';
-      chipEs.classList.toggle('active', lang==='es');
-      chipEn.classList.toggle('active', lang==='en');
-      chipEs.setAttribute('aria-pressed', lang==='es');
-      chipEn.setAttribute('aria-pressed', lang==='en');
-    }
+    // Estado
+    const state={lang:(new URLSearchParams(location.search).get('lang')||localStorage.getItem('lang')||'es').toLowerCase(),section:(new URLSearchParams(location.search).get('section')||'overview').toLowerCase()};
 
-    function fetchMarkdown(file, target){
-      target.innerHTML = 'Cargando…';
-      fetch(file, {cache:'no-store'})
-        .then(function(res){ if(!res.ok) throw new Error('No se pudo cargar ' + file); return res.text(); })
-        .then(function(md){ marked.setOptions({gfm:true, breaks:true}); target.innerHTML = marked.parse(md); })
-        .catch(function(e){ target.innerHTML = '<p style="color:#fca5a5">'+e.message+'</p>'; });
-    }
+    // Utilidades
+    const setLang=lang=>{state.lang=lang;document.documentElement.lang=lang==='en'?'en':'es';localStorage.setItem('lang',lang);$('#chip-es').classList.toggle('active',lang==='es');$('#chip-en').classList.toggle('active',lang==='en');$('#chip-es').setAttribute('aria-pressed',lang==='es');$('#chip-en').setAttribute('aria-pressed',lang==='en');$('#btn-overview').textContent=S[lang].tabO;$('#btn-services').textContent=S[lang].tabS;$('#drawer-title').textContent=S[lang].projects;renderProjects();}
+    const navTo=section=>{state.section=section==='services'?'services':'overview';$('#content').hidden=state.section!=='overview';$('#services').hidden=state.section!=='services';$('#btn-overview').setAttribute('aria-current',state.section==='overview'?'page':'false');$('#btn-services').setAttribute('aria-current',state.section==='services'?'page':'false');const u=new URL(location.href);u.searchParams.set('section',state.section);u.searchParams.set('lang',state.lang);history.replaceState({},'',u);scrollTo({top:0,behavior:'smooth'});}
+    const loadMD=(file,into)=>{into.innerHTML='Cargando…';fetch(file,{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('No se pudo cargar '+file);return r.text()}).then(md=>{marked.setOptions({gfm:true,breaks:true});into.innerHTML=marked.parse(md)}).catch(e=>{into.innerHTML='<p style="color:#fca5a5">'+e.message+'</p>'})}
+    const renderProjects=()=>{const t=S[state.lang];const list=$('#proj-list');list.innerHTML='';PROJECTS.forEach(p=>{const el=document.createElement('div');el.className='card';const badge=p.status==='done'?`<span class="badge done">${t.done}</span>`:`<span class="badge wip">${t.wip}</span>`;const stack=p.stack.map(s=>`<span class="badge" style="background:rgba(255,255,255,.06)">${s}</span>`).join(' ');const repo=p.repo?`<a class="link" href="${p.repo}" target="_blank" rel="noopener">${t.repo}</a>`:'';const demo=p.demo?`<a class="link" href="${p.demo}" target="_blank" rel="noopener">${t.demo}</a>`:'';el.innerHTML=`<strong>${p.name}</strong><div class="meta">${badge}</div><div style="margin:.25rem 0 .5rem">${p[state.lang].desc}</div><div class="meta">${stack}</div><div class="meta">${repo} ${demo}</div>`;list.appendChild(el)})}
 
-    function showSection(section){
-      var sec = (section === 'services') ? 'services' : 'overview';
-      contentEl.hidden  = (sec !== 'overview');
-      servicesEl.hidden = (sec !== 'services');
-      btnOverview.setAttribute('aria-current', sec==='overview' ? 'page' : 'false');
-      btnServices.setAttribute('aria-current', sec==='services' ? 'page' : 'false');
-      var url = new URL(location.href);
-      url.searchParams.set('section', sec);
-      history.replaceState({}, '', url);
-      window.scrollTo({top:0, behavior:'smooth'});
-    }
+    // Drawer
+    const openDrawer=()=>{$('#backdrop').classList.add('open');$('#drawer').classList.add('open')}
+    const closeDrawer=()=>{$('#backdrop').classList.remove('open');$('#drawer').classList.remove('open')}
 
-    chipEs.addEventListener('click', function(){ setDocLang('es'); fetchMarkdown('README.md', contentEl); fetchMarkdown('SERVICES.md', servicesEl); });
-    chipEn.addEventListener('click', function(){ setDocLang('en'); fetchMarkdown('README.en.md', contentEl); fetchMarkdown('SERVICES.en.md', servicesEl); });
-    btnOverview.addEventListener('click', function(){ showSection('overview'); });
-    btnServices.addEventListener('click', function(){ showSection('services'); });
+    // Eventos
+    $('#btn-projects').onclick=openDrawer;$('#btn-close').onclick=closeDrawer;$('#backdrop').onclick=closeDrawer;addEventListener('keydown',e=>{if(e.key==='Escape')closeDrawer()});
+    $('#btn-overview').onclick=()=>navTo('overview');$('#btn-services').onclick=()=>navTo('services');
+    $('#chip-es').onclick=()=>{setLang('es');loadMD('README.md',$('#content'));loadMD('SERVICES.md',$('#services'))}
+    $('#chip-en').onclick=()=>{setLang('en');loadMD('README.en.md',$('#content'));loadMD('SERVICES.en.md',$('#services'))}
 
-    // Inicio: lee parámetros
-    var params = new URLSearchParams(location.search);
-    var initialLang = (params.get('lang') || 'es').toLowerCase();
-    var initialSection = (params.get('section') || 'overview').toLowerCase();
-    setDocLang(initialLang);
-    fetchMarkdown(initialLang==='en' ? 'README.en.md' : 'README.md', contentEl);
-    fetchMarkdown(initialLang==='en' ? 'SERVICES.en.md' : 'SERVICES.md', servicesEl);
-    showSection(initialSection);
+    // Inicio
+    setLang(state.lang);
+    loadMD(state.lang==='en'?'README.en.md':'README.md',$('#content'));
+    loadMD(state.lang==='en'?'SERVICES.en.md':'SERVICES.md',$('#services'));
+    navTo(state.section);
   </script>
 
-  <script>
-  // Upwork-safe mode: ocultar contactos cuando ?upwork=1
-  (function(){
-    try{
-      var q = new URLSearchParams(location.search);
-      if (q.get('upwork') !== '1') return;
-      var selectors = ['#gmail-btn','#mailto-btn','#linkedin-btn','a[href^="mailto:"]','a[href*="linkedin.com"]','a[href*="malt."]','[data-contact]','.contact'];
-      var nodes = document.querySelectorAll(selectors.join(','));
-      for (var i=0;i<nodes.length;i++){ nodes[i].remove(); }
-    }catch(e){}
-  })();
-  </script>
+  <!-- Upwork safe-mode: ?upwork=1 oculta contacto -->
+  <script>(()=>{try{const q=new URLSearchParams(location.search);if(q.get('upwork')!=='1')return;document.querySelectorAll('#gmail-btn,#mailto-btn,#linkedin-btn,a[href^="mailto:"],a[href*="linkedin.com"],a[href*="malt."],[data-contact],.contact').forEach(el=>el.remove())}catch(e){}})();</script>
 </body>
 </html>
