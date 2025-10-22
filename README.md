@@ -75,6 +75,7 @@ Aprendí montando y rompiendo en labs y proyectos reales; hoy trabajo para que l
 | Coste de infraestructura | Alto (no optimizado) | ~25–30% menos | Recursos optimizados en Azure y GCP |
 | Mantenimiento operativo | Complejo, manual | Simplificado | Entornos más ágiles y fáciles de mantener |
 
+---
 
 💼 **¿Quieres ver mis servicios?**  
 ➡️ [Ir a servicios](?section=services)
