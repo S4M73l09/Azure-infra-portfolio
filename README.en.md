@@ -32,7 +32,7 @@ Technical portfolio as a freelance **DevOps** specialist in infrastructure autom
 
 ---
 
-## 📊 Project: Observability & Orchestration
+## 📊 Project: Observability & Orchestration (In progress)  
 
 **Challenge:** Implement full-stack observability (logs and metrics) for Azure IaC-managed environments.  
 **Solution:** Dockerized Prometheus, Grafana, and Alertmanager; automated setup with Ansible; integrated health checks in GitHub Actions pipelines.  
@@ -52,7 +52,7 @@ Technical portfolio as a freelance **DevOps** specialist in infrastructure autom
 
 ---
 
-## 🇬 Project: Gcloud-scripts  
+## 🇬 Project: Gcloud-scripts (In progress)  
 
 **Challenge:** Automate the creation of resources necessary for deployment in both Powershell and Bash Scripts.  
 **Solution:** Script Powershell with Wrapper, and Script Bash for Linux environments. All in one and with interactive menu and customization.  
