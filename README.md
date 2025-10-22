@@ -7,7 +7,7 @@ Aprendí montando y rompiendo en labs y proyectos reales; hoy trabajo para que l
 
 <p data-contact> Enlaces de contacto abajo </p>
 
-### Portfolio tecnico como freelance DevOps especializado en automatización de infraestructura con Terraform, Ansible, Docker y despliegue en **CLoud**.
+### Portfolio tecnico como freelance DevOps especializado en automatización de infraestructura con **Terraform**, **CI/CD**, **Ansible**, **Docker** y despliegue en **CLoud**.
 -------------------------------------------------------
 
 ### 🧰 Tecnologías principales
@@ -58,12 +58,23 @@ Aprendí montando y rompiendo en labs y proyectos reales; hoy trabajo para que l
 
 ### 🇬 Proyecto: Gcloud-Scripts (En curso)
 
-**Reto:** Automatizar la creacion de recursos necesarios para despliegue tanto en Scripts Powershell como Bash.
-**Solucion:** Script Powershell con Wrapper, y Script Bash para entornos Linux. Todo en uno y con menu interactivo y personalizacion.
-**Impacto:** Simplifica en un unico archivo la configuracion de diferentes recursos en Google Cloud + Creacion de maquina virtual Terraform y archivos varios.
-**Stack:** Powershell · Bash · GCloud · Scripts · terraform · Linux · Automation · DevOps
-**Código:** [Repositorio](https://github.com/S4M73l09/Gcloud-Script)
+**Reto:** Automatizar la creacion de recursos necesarios para despliegue tanto en Scripts Powershell como Bash.  
+**Solucion:** Script Powershell con Wrapper, y Script Bash para entornos Linux. Todo en uno y con menu interactivo y personalizacion.  
+**Impacto:** Simplifica en un unico archivo la configuracion de diferentes recursos en Google Cloud + Creacion de maquina virtual Terraform y archivos varios.  
+**Stack:** Powershell · Bash · GCloud · Scripts · terraform · Linux · Automation · DevOps  
+**Código:** [Repositorio](https://github.com/S4M73l09/Gcloud-Script)  
 
----
+---  
+
+### 📈 Impacto Global (Todos los Proyectos)
+
+| KPI | Antes | Después | Descripción |
+|------|--------|----------|--------------|
+| Tiempo de despliegue | ~45 min | ~10–12 min | Aplicación automática de cambios con CI/CD |
+| Intervención manual | Alta | Mínima | Automatización con Ansible y Terraform |
+| Coste de infraestructura | Alto (no optimizado) | ~25–30% menos | Recursos optimizados en Azure y GCP |
+| Mantenimiento operativo | Complejo, manual | Simplificado | Entornos más ágiles y fáciles de mantener |
+
+
 💼 **¿Quieres ver mis servicios?**  
 ➡️ [Ir a servicios](?section=services)
