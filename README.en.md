@@ -10,17 +10,17 @@ Technical portfolio as a freelance **DevOps** specialist in infrastructure autom
 ---
 
 ### 🧰 Main Technologies  
-```md
-![Terraform](https://img.shields.io/badge/IaC-Terraform-5C4EE5)
-![Ansible](https://img.shields.io/badge/Automation-Ansible-EE0000)
-![Azure](https://img.shields.io/badge/Cloud-Azure-0078D4)
-![GCP](https://img.shields.io/badge/Cloud-Google_Cloud-4285F4)
-![Docker](https://img.shields.io/badge/Container-Docker-2496ED)
-![CI/CD](https://img.shields.io/badge/Pipeline-CI%2FCD-2088FF)
-![GitHub Actions](https://img.shields.io/badge/Automation-GitHub_Actions-2088FF)
-![Grafana](https://img.shields.io/badge/Monitoring-Grafana-F46800)
-![Prometheus](https://img.shields.io/badge/Metrics-Prometheus-E6522C)
-```
+
+![Terraform](https://img.shields.io/badge/IaC-Terraform-5C4EE5)  
+![Ansible](https://img.shields.io/badge/Automation-Ansible-EE0000)  
+![Azure](https://img.shields.io/badge/Cloud-Azure-0078D4)  
+![GCP](https://img.shields.io/badge/Cloud-Google_Cloud-4285F4)  
+![Docker](https://img.shields.io/badge/Container-Docker-2496ED)  
+![CI/CD](https://img.shields.io/badge/Pipeline-CI%2FCD-2088FF)  
+![GitHub Actions](https://img.shields.io/badge/Automation-GitHub_Actions-2088FF)  
+![Grafana](https://img.shields.io/badge/Monitoring-Grafana-F46800)  
+![Prometheus](https://img.shields.io/badge/Metrics-Prometheus-E6522C)  
+
 ---  
 ## 🖥️ Project: Automated Jellyfin Server
 
