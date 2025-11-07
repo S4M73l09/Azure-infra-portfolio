@@ -11,7 +11,7 @@ Aprendí montando y rompiendo en labs y proyectos reales; hoy trabajo para que l
 -------------------------------------------------------
 
 ### 🧰 Tecnologías principales
-```md
+
 ![Terraform](https://img.shields.io/badge/IaC-Terraform-5C4EE5)
 ![Ansible](https://img.shields.io/badge/Automation-Ansible-EE0000)
 ![Azure](https://img.shields.io/badge/Cloud-Azure-0078D4)
@@ -21,7 +21,7 @@ Aprendí montando y rompiendo en labs y proyectos reales; hoy trabajo para que l
 ![GitHub Actions](https://img.shields.io/badge/Automation-GitHub_Actions-2088FF)
 ![Grafana](https://img.shields.io/badge/Monitoring-Grafana-F46800)
 ![Prometheus](https://img.shields.io/badge/Metrics-Prometheus-E6522C)
-```
+
 ---
 
 ## ¿Cuales son los proyectos que he hecho?
