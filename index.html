@@ -42,6 +42,8 @@
     .badge{font-size:.75rem;padding:3px 8px;border-radius:999px;border:1px solid var(--bd)}
     .done{background:rgba(34,197,94,.15);border-color:rgba(34,197,94,.4)}
     .wip{background:rgba(245,158,11,.15);border-color:rgba(245,158,11,.4)}
+    /* Título de secciones dentro del drawer */
+    .proj-section-title{font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin:4px 4px 2px}
   </style>
 </head>
 <body>
@@ -78,8 +80,32 @@
     // ===== Config =====
     const email='saminfradevops@gmail.com', githubURL='https://github.com/S4M73l09', linkedinURL='https://www.linkedin.com/in/samuelillobaby/';
     const $=sel=>document.querySelector(sel);
-    const S={es:{projects:'Proyectos',projectsDesc:'Terminado y en curso. Clic para ver código o demo.',done:'Terminado',wip:'En curso',repo:'Ver repo',demo:'Ver demo',tabO:'📄 Overview',tabS:'💼 Servicios'},
-             en:{projects:'Projects', projectsDesc:'Completed and in progress. Click to see code or demo.',done:'Completed',wip:'In progress',repo:'View repo',demo:'View demo',tabO:'📄 Overview',tabS:'💼 Services'}};
+    const S={
+      es:{
+        projects:'Proyectos',
+        projectsDesc:'Terminado y en curso. Clic para ver código o demo.',
+        specialProjects:'Proyectos especiales',                 // añadido
+        specialProjectsDesc:'Infraestructura completa en GCP.',  // añadido (por si lo quieres usar)
+        done:'Terminado',
+        wip:'En curso',
+        repo:'Ver repo',
+        demo:'Ver demo',
+        tabO:'📄 Overview',
+        tabS:'💼 Servicios'
+      },
+      en:{
+        projects:'Projects',
+        projectsDesc:'Completed and in progress. Click to see code or demo.',
+        specialProjects:'Special projects',                      // añadido
+        specialProjectsDesc:'Full GCP infrastructure.',         // añadido
+        done:'Completed',
+        wip:'In progress',
+        repo:'View repo',
+        demo:'View demo',
+        tabO:'📄 Overview',
+        tabS:'💼 Services'
+      }
+    };
 
     // Footer + año
     $('#year').textContent=new Date().getFullYear();
@@ -95,6 +121,28 @@
       {name:'Scripts Dominio Windows Core',repo:'https://github.com/S4M73l09/scripts-guia-windows',demo:'',status:'done',stack:['Windows','Github','Scripts','Powershell.'],es:{desc:'Scrips personalizables para creacion de Dominio de Windows Server Core.'},en:{desc:'Customizable windows Server core scripts.'}}
     ];
 
+    // Proyectos especiales (GCS) — NUEVO
+    const SPECIAL_PROJECTS=[
+      {
+        name:'GCS Infra Bootstrap',
+        repo:'https://github.com/S4M73l09/GCS-Bootstrap---Live',
+        demo:'',
+        status:'done',
+        stack:['Terraform','GCP','GitHub Actions','OIDC'],
+        es:{desc:'Proyecto Bootstrap en GCP: proyecto base, cuentas de servicio y Workload Identity Federation para desplegar la infraestructura Live.'},
+        en:{desc:'Bootstrap project in GCP: base project, service accounts and Workload Identity Federation for the Live infrastructure.'}
+      },
+      {
+        name:'GCS Infra Live',
+        repo:'https://github.com/S4M73l09/GCS-Infra-Live',
+        demo:'',
+        status:'wip',
+        stack:['Terraform','Ansible','Docker','GCP','Monitoring'],
+        es:{desc:'Infraestructura Live en GCP: VMs, red, OS Login + IAP y despliegue con Ansible de Prometheus, Grafana, Alertmanager y web estática.'},
+        en:{desc:'Live infrastructure on GCP: VMs, networking, OS Login + IAP and Ansible deployment for Prometheus, Grafana, Alertmanager and static website.'}
+      }
+    ];
+
     // Estado
     const state={lang:(new URLSearchParams(location.search).get('lang')||localStorage.getItem('lang')||'es').toLowerCase(),section:(new URLSearchParams(location.search).get('section')||'overview').toLowerCase()};
 
@@ -102,7 +150,55 @@
     const setLang=lang=>{state.lang=lang;document.documentElement.lang=lang==='en'?'en':'es';localStorage.setItem('lang',lang);$('#chip-es').classList.toggle('active',lang==='es');$('#chip-en').classList.toggle('active',lang==='en');$('#chip-es').setAttribute('aria-pressed',lang==='es');$('#chip-en').setAttribute('aria-pressed',lang==='en');$('#btn-overview').textContent=S[lang].tabO;$('#btn-services').textContent=S[lang].tabS;$('#drawer-title').textContent=S[lang].projects;renderProjects();}
     const navTo=section=>{state.section=section==='services'?'services':'overview';$('#content').hidden=state.section!=='overview';$('#services').hidden=state.section!=='services';$('#btn-overview').setAttribute('aria-current',state.section==='overview'?'page':'false');$('#btn-services').setAttribute('aria-current',state.section==='services'?'page':'false');const u=new URL(location.href);u.searchParams.set('section',state.section);u.searchParams.set('lang',state.lang);history.replaceState({},'',u);scrollTo({top:0,behavior:'smooth'});}
     const loadMD=(file,into)=>{into.innerHTML='Cargando…';fetch(file,{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('No se pudo cargar '+file);return r.text()}).then(md=>{marked.setOptions({gfm:true,breaks:true});into.innerHTML=marked.parse(md)}).catch(e=>{into.innerHTML='<p style="color:#fca5a5">'+e.message+'</p>'})}
-    const renderProjects=()=>{const t=S[state.lang];const list=$('#proj-list');list.innerHTML='';PROJECTS.forEach(p=>{const el=document.createElement('div');el.className='card';const badge=p.status==='done'?`<span class="badge done">${t.done}</span>`:`<span class="badge wip">${t.wip}</span>`;const stack=p.stack.map(s=>`<span class="badge" style="background:rgba(255,255,255,.06)">${s}</span>`).join(' ');const repo=p.repo?`<a class="link" href="${p.repo}" target="_blank" rel="noopener">${t.repo}</a>`:'';const demo=p.demo?`<a class="link" href="${p.demo}" target="_blank" rel="noopener">${t.demo}</a>`:'';el.innerHTML=`<strong>${p.name}</strong><div class="meta">${badge}</div><div style="margin:.25rem 0 .5rem">${p[state.lang].desc}</div><div class="meta">${stack}</div><div class="meta">${repo} ${demo}</div>`;list.appendChild(el)})}
+
+    // Render de proyectos + proyectos especiales
+    const renderProjects=()=>{
+      const t=S[state.lang];
+      const list=$('#proj-list');
+      list.innerHTML='';
+
+      // Sección Proyectos (los de siempre)
+      if(PROJECTS.length){
+        const titleNormal=document.createElement('div');
+        titleNormal.className='proj-section-title';
+        titleNormal.textContent=t.projects;
+        list.appendChild(titleNormal);
+
+        PROJECTS.forEach(p=>{
+          const el=document.createElement('div');
+          el.className='card';
+          const badge=p.status==='done'
+            ?`<span class="badge done">${t.done}</span>`
+            :`<span class="badge wip">${t.wip}</span>`;
+          const stack=p.stack.map(s=>`<span class="badge" style="background:rgba(255,255,255,.06)">${s}</span>`).join(' ');
+          const repo=p.repo?`<a class="link" href="${p.repo}" target="_blank" rel="noopener">${t.repo}</a>`:'';
+          const demo=p.demo?`<a class="link" href="${p.demo}" target="_blank" rel="noopener">${t.demo}</a>`:'';
+          el.innerHTML=`<strong>${p.name}</strong><div class="meta">${badge}</div><div style="margin:.25rem 0 .5rem">${p[state.lang].desc}</div><div class="meta">${stack}</div><div class="meta">${repo} ${demo}</div>`;
+          list.appendChild(el);
+        });
+      }
+
+      // Sección Proyectos especiales (GCS)
+      if(SPECIAL_PROJECTS.length){
+        const titleSpecial=document.createElement('div');
+        titleSpecial.className='proj-section-title';
+        titleSpecial.textContent=t.specialProjects;
+        list.appendChild(titleSpecial);
+
+        SPECIAL_PROJECTS.forEach(p=>{
+          const el=document.createElement('div');
+          el.className='card';
+          const badge=p.status==='done'
+            ?`<span class="badge done">${t.done}</span>`
+            :`<span class="badge wip">${t.wip}</span>`;
+          const stack=p.stack.map(s=>`<span class="badge" style="background:rgba(255,255,255,.06)">${s}</span>`).join(' ');
+          const repo=p.repo?`<a class="link" href="${p.repo}" target="_blank" rel="noopener">${t.repo}</a>`:'';
+          const demo=p.demo?`<a class="link" href="${p.demo}" target="_blank" rel="noopener">${t.demo}</a>`:'';
+          el.innerHTML=`<strong>${p.name}</strong><div class="meta">${badge}</div><div style="margin:.25rem 0 .5rem">${p[state.lang].desc}</div><div class="meta">${stack}</div><div class="meta">${repo} ${demo}</div>`;
+          list.appendChild(el);
+        });
+      }
+    };
 
     // Drawer
     const openDrawer=()=>{$('#backdrop').classList.add('open');$('#drawer').classList.add('open')}
@@ -125,3 +221,4 @@
   <script>(()=>{try{const q=new URLSearchParams(location.search);if(q.get('upwork')!=='1')return;document.querySelectorAll('#gmail-btn,#mailto-btn,#linkedin-btn,a[href^="mailto:"],a[href*="linkedin.com"],a[href*="malt."],[data-contact],.contact').forEach(el=>el.remove())}catch(e){}})();</script>
 </body>
 </html>
+
