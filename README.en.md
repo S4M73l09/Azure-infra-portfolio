@@ -22,6 +22,8 @@ Technical portfolio as a freelance **DevOps** specialist in infrastructure autom
 ![Prometheus](https://img.shields.io/badge/Metrics-Prometheus-E6522C)  
 
 ---  
+# What projects have I done?
+
 ## 🖥️ Project: Automated Jellyfin Server
 
 **Challenge:** Build a fully automated and reproducible multimedia server on Azure.  
@@ -32,7 +34,7 @@ Technical portfolio as a freelance **DevOps** specialist in infrastructure autom
 
 ---
 
-## 📊 Project: Observability & Orchestration (In progress)  
+## 📊 Project: Observability & Orchestration 
 
 **Challenge:** Implement full-stack observability (logs and metrics) for Azure IaC-managed environments.  
 **Solution:** Dockerized Prometheus, Grafana, and Alertmanager; automated setup with Ansible; integrated health checks in GitHub Actions pipelines.  
@@ -61,6 +63,27 @@ Technical portfolio as a freelance **DevOps** specialist in infrastructure autom
 **Code:** [Repository](https://github.com/S4M73l09/Gcloud-Script)    
 
 ---
+
+# Special or complex projects.
+
+## Bootstrap/Infra-Live in GCS
+
+### 🅱️ Proyecto: Bootstrap en GCS.
+
+**Challenge:** Create a sufficient template for the correct and functional deployment of separate infrastructures so as not to inherit faults.
+**Solution:** Create a Bootstrap with everything needed and separate it for use in future projects or deployments without fear of failure since they are separate.
+**Impact:** Bootstrap separated from the actual infrastructure and configured to improve deployment.
+**Stack:** OIDC · GCloud · Terraform · Github Actions
+**Code:** [Repository](https://github.com/S4M73l09/GCS-Bootstrap---Live)
+
+### ℹ️ Proyecto: Infra-Live en GCS
+
+**Challenge:** Create relevant infrastructure using Bootstrap.  
+**Solution:** Infrastructure using the Bootstrap intermediary.  
+**Impact:** It simplifies the creation, administration, and improvement of infrastructure by separating all the real infrastructure from Bootstrap into different repositories.  
+**Stack:** Terraform · GCS · Docker · Ansible · Monitoring  
+**Code:** [Repository](https://github.com/S4M73l09/GCS-Infra-Live)
+
 
 ### 📈 Global Impact (All Projects)
 
