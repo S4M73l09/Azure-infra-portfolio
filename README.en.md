@@ -70,11 +70,11 @@ Technical portfolio as a freelance **DevOps** specialist in infrastructure autom
 
 ### 🅱️ Proyecto: Bootstrap en GCS.
 
-**Challenge:** Create a sufficient template for the correct and functional deployment of separate infrastructures so as not to inherit faults.
-**Solution:** Create a Bootstrap with everything needed and separate it for use in future projects or deployments without fear of failure since they are separate.
-**Impact:** Bootstrap separated from the actual infrastructure and configured to improve deployment.
-**Stack:** OIDC · GCloud · Terraform · Github Actions
-**Code:** [Repository](https://github.com/S4M73l09/GCS-Bootstrap---Live)
+**Challenge:** Create a sufficient template for the correct and functional deployment of separate infrastructures so as not to inherit faults.  
+**Solution:** Create a Bootstrap with everything needed and separate it for use in future projects or deployments without fear of failure since they are separate.  
+**Impact:** Bootstrap separated from the actual infrastructure and configured to improve deployment.  
+**Stack:** OIDC · GCloud · Terraform · Github Actions  
+**Code:** [Repository](https://github.com/S4M73l09/GCS-Bootstrap---Live)  
 
 ### ℹ️ Proyecto: Infra-Live en GCS
 
@@ -82,7 +82,7 @@ Technical portfolio as a freelance **DevOps** specialist in infrastructure autom
 **Solution:** Infrastructure using the Bootstrap intermediary.  
 **Impact:** It simplifies the creation, administration, and improvement of infrastructure by separating all the real infrastructure from Bootstrap into different repositories.  
 **Stack:** Terraform · GCS · Docker · Ansible · Monitoring  
-**Code:** [Repository](https://github.com/S4M73l09/GCS-Infra-Live)
+**Code:** [Repository](https://github.com/S4M73l09/GCS-Infra-Live)  
 
 
 ### 📈 Global Impact (All Projects)
