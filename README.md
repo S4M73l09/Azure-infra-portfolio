@@ -70,19 +70,19 @@ Aprendí montando y rompiendo en labs y proyectos reales; hoy trabajo para que l
 
 ### 🅱️ Proyecto: Bootstrap en GCS.
 
-**Reto:** Crear la plantilla suficiente para el despliegue correcto y funcional de infraestructuras, separadas para asi no heredar fallos.
-**Solucion:** Crear un Bootstrap con todo lo necesario y separarlo para usarlo en futuros proyectos o despliegues sin miedo a que falle ya que estan separados.
-**Impacto:** Bootstrap separado de infra real y configurado para mejorar el despliegue
-**Stack:** OIDC · GCloud · Terraform · Github Actions
-**Código:** [Repositorio](https://github.com/S4M73l09/GCS-Bootstrap---Live)
+**Reto:** Crear la plantilla suficiente para el despliegue correcto y funcional de infraestructuras, separadas para asi no heredar fallos.  
+**Solucion:** Crear un Bootstrap con todo lo necesario y separarlo para usarlo en futuros proyectos o despliegues sin miedo a que falle ya que estan separados.  
+**Impacto:** Bootstrap separado de infra real y configurado para mejorar el despliegue.  
+**Stack:** OIDC · GCloud · Terraform · Github Actions  
+**Código:** [Repositorio](https://github.com/S4M73l09/GCS-Bootstrap---Live)  
 
 ### ℹ️ Proyecto: Infra-Live en GCS
 
-**Reto:** Crear infraestructura pertinente usando el Bootstrap
-**Solucion:** Infraestructura usando el Bootstrap de intermediario.
-**Impacto:** Simplifica la creacion, administracion y mejora de infraestructura, separando todo la infra real del Bootstrap en repositorios distintos
-**Stack:** Terraform · GCS · Docker · Ansible · Monitoring
-**Código:** [Repositorio](https://github.com/S4M73l09/GCS-Infra-Live)
+**Reto:** Crear infraestructura pertinente usando el Bootstrap.  
+**Solucion:** Infraestructura usando el Bootstrap de intermediario.  
+**Impacto:** Simplifica la creacion, administracion y mejora de infraestructura, separando todo la infra real del Bootstrap en repositorios distintos.  
+**Stack:** Terraform · GCS · Docker · Ansible · Monitoring  
+**Código:** [Repositorio](https://github.com/S4M73l09/GCS-Infra-Live)  
 
 ---  
 
