@@ -9,7 +9,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{--bg:#0b0e14;--txt:#e2e8f0;--muted:#9aa4b2;--panel:#0f172a;--bd:rgba(255,255,255,.12);--glass:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01))}
-    *{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;background:var(--bg);color:var(--txt)}
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      background:var(--bg);
+      /* degradado azulito hacia abajo */
+      background:linear-gradient(
+        180deg,
+        #020617 0%,
+        #020617 10%,
+        #0b1120 35%,
+        #111827 65%,
+        #1e293b 100%
+      );
+      color:var(--txt)
+    }
     header{position:sticky;top:0;z-index:10;backdrop-filter:saturate(140%) blur(8px);background:rgba(11,14,20,.8);border-bottom:1px solid rgba(255,255,255,.06)}
     .bar{max-width:1100px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:12px}
     .bar>div{display:flex;align-items:center;gap:10px}
@@ -36,7 +51,19 @@
     .drawer{position:fixed;top:0;right:0;height:100%;width:min(420px,92vw);background:rgba(14,18,27,.98);border-left:1px solid var(--bd);transform:translateX(100%);transition:.25s;display:flex;flex-direction:column}
     .drawer.open{transform:translateX(0)}
     .drawer-head{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid var(--bd)}
-    .proj-list{display:grid;gap:12px;padding:12px}
+    .proj-list{
+      display:grid;
+      gap:12px;
+      padding:12px;
+      /* NUEVO: que ocupe el alto libre y tenga scroll */
+      flex:1;
+      overflow-y:auto;
+    }
+    /* Scrollbar suave dentro del panel de proyectos */
+    .proj-list::-webkit-scrollbar{width:8px}
+    .proj-list::-webkit-scrollbar-track{background:transparent}
+    .proj-list::-webkit-scrollbar-thumb{background:rgba(148,163,184,.7);border-radius:999px}
+    .proj-list::-webkit-scrollbar-thumb:hover{background:rgba(148,163,184,.95)}
     .card{padding:12px}
     .meta{display:flex;gap:8px;flex-wrap:wrap;margin:.25rem 0}
     .badge{font-size:.75rem;padding:3px 8px;border-radius:999px;border:1px solid var(--bd)}
@@ -118,7 +145,8 @@
     const PROJECTS=[
       {name:'Proyecto Server automatico con jellyfin',repo:'https://github.com/S4M73l09/ProyectoServer',demo:'',status:'done',stack:['Terraform','Github Actions','Ansible','Docker','Azure','Grafana','Prometheus','WireGuard'],es:{desc:'Infraestructura IaC en Azure con automatización de despliegue y monitorización.'},en:{desc:'Infrastructure as Code on Azure with automated deployment and monitoring.'}},
       {name:'Observabilidad-Orquestacion',repo:'https://github.com/S4M73l09/Obversabilidad-Obversility',demo:'',status:'wip',stack:['Terraform','Azure OIDC','Github Actions','Ansible','Docker','Grafana','Prometheus.'],es:{desc:'Servidor con despliegue automatizado, dockerizado, enfocando en buenas prácticas y mantenimiento.'},en:{desc:'Dockerized media server focusing on best practices and maintainability.'}},
-      {name:'Scripts Dominio Windows Core',repo:'https://github.com/S4M73l09/scripts-guia-windows',demo:'',status:'done',stack:['Windows','Github','Scripts','Powershell.'],es:{desc:'Scrips personalizables para creacion de Dominio de Windows Server Core.'},en:{desc:'Customizable windows Server core scripts.'}}
+      {name:'Scripts Dominio Windows Core',repo:'https://github.com/S4M73l09/scripts-guia-windows',demo:'',status:'done',stack:['Windows','Github','Scripts','Powershell.'],es:{desc:'Scrips personalizables para creacion de Dominio de Windows Server Core.'},en:{desc:'Customizable windows Server core scripts.'}},
+      {name:'Gcloud-Scripts',repo:'https://github.com/S4M73l09/Gcloud-Script',demo:'',status:'wip',stack:['Windows','Linux','bash','devops','automaton','cloud','Script','powershell','terraform','google-cloud','gcloud','powershell-script','infraestructure-as-a-code.'],es:{desc:'Script interactivo de bash y Powershell, para crear backend y despliegue de maquinas virtuales con menu interactivo.'},es:{desc:'About Interactive Bash and Powershell script to create a full Terraform backend and deploy VMs in Google Cloud.'}}
     ];
 
     // Proyectos especiales (GCS) — NUEVO
@@ -221,4 +249,3 @@
   <script>(()=>{try{const q=new URLSearchParams(location.search);if(q.get('upwork')!=='1')return;document.querySelectorAll('#gmail-btn,#mailto-btn,#linkedin-btn,a[href^="mailto:"],a[href*="linkedin.com"],a[href*="malt."],[data-contact],.contact').forEach(el=>el.remove())}catch(e){}})();</script>
 </body>
 </html>
-
