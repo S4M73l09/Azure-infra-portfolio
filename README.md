@@ -24,7 +24,7 @@ Aprendí montando y rompiendo en labs y proyectos reales; hoy trabajo para que l
 
 ---
 
-## ¿Cuales son los proyectos que he hecho?
+# ¿Cuales son los proyectos que he hecho?
 
 ### 🖥️ Proyecto: Servidor Automatizado Jellyfin
 
@@ -64,7 +64,9 @@ Aprendí montando y rompiendo en labs y proyectos reales; hoy trabajo para que l
 **Stack:** Powershell · Bash · GCloud · Scripts · terraform · Linux · Automation · DevOps  
 **Código:** [Repositorio](https://github.com/S4M73l09/Gcloud-Script)  
 
-## Proyectos especiales o complejos.
+# Proyectos especiales o complejos.
+
+## Bootstrap/Infra-Live en GCS
 
 ### 🅱️ Proyecto: Bootstrap en GCS.
 
