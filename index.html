@@ -69,6 +69,7 @@
     .badge{font-size:.75rem;padding:3px 8px;border-radius:999px;border:1px solid var(--bd)}
     .done{background:rgba(34,197,94,.15);border-color:rgba(34,197,94,.4)}
     .wip{background:rgba(245,158,11,.15);border-color:rgba(245,158,11,.4)}
+    .expansion{background:rgba(59,130,246,.15);border-color:rgba(59,130,246,.4)}
     /* Título de secciones dentro del drawer */
     .proj-section-title{font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin:4px 4px 2px}
   </style>
@@ -77,7 +78,7 @@
   <header>
     <div class="bar">
       <div><div class="logo">S4M73l09 Infra Portfolio</div><button id="btn-projects" class="btn">📁 Proyectos</button></div>
-      <div style="margin-left:auto"><button id="btn-overview" class="btn" aria-current="page">📄 Overview</button><button id="btn-services" class="btn">💼 Servicios</button></div>
+      <div style="margin-left:auto"></div>
       <div role="group" aria-label="Idioma"><button id="chip-es" class="chip active" aria-pressed="true">ES</button><button id="chip-en" class="chip" aria-pressed="false">EN</button></div>
     </div>
   </header>
@@ -111,26 +112,24 @@
       es:{
         projects:'Proyectos',
         projectsDesc:'Terminado y en curso. Clic para ver código o demo.',
-        specialProjects:'Proyectos especiales',                 // añadido
+        specialProjects:'Laboratorio de infraestructura',        // añadido
         specialProjectsDesc:'Infraestructura completa en GCP.',  // añadido (por si lo quieres usar)
         done:'Terminado',
+        expansion: 'Terminado + En Expansion',
         wip:'En curso',
         repo:'Ver repo',
-        demo:'Ver demo',
-        tabO:'📄 Overview',
-        tabS:'💼 Servicios'
+        demo:'Ver demo'
       },
       en:{
         projects:'Projects',
         projectsDesc:'Completed and in progress. Click to see code or demo.',
-        specialProjects:'Special projects',                      // añadido
+        specialProjects:'Infrastructure Lab',                     // añadido
         specialProjectsDesc:'Full GCP infrastructure.',         // añadido
         done:'Completed',
+        expansion: 'Completed + Expanding',
         wip:'In progress',
         repo:'View repo',
-        demo:'View demo',
-        tabO:'📄 Overview',
-        tabS:'💼 Services'
+        demo:'View demo'
       }
     };
 
@@ -146,7 +145,7 @@
       {name:'Proyecto Server automatico con jellyfin',repo:'https://github.com/S4M73l09/ProyectoServer',demo:'',status:'done',stack:['Terraform','Github Actions','Ansible','Docker','Azure','Grafana','Prometheus','WireGuard'],es:{desc:'Infraestructura IaC en Azure con automatización de despliegue y monitorización.'},en:{desc:'Infrastructure as Code on Azure with automated deployment and monitoring.'}},
       {name:'Observabilidad-Orquestacion',repo:'https://github.com/S4M73l09/Obversabilidad-Obversility',demo:'',status:'wip',stack:['Terraform','Azure OIDC','Github Actions','Ansible','Docker','Grafana','Prometheus.'],es:{desc:'Servidor con despliegue automatizado, dockerizado, enfocando en buenas prácticas y mantenimiento.'},en:{desc:'Dockerized media server focusing on best practices and maintainability.'}},
       {name:'Scripts Dominio Windows Core',repo:'https://github.com/S4M73l09/scripts-guia-windows',demo:'',status:'done',stack:['Windows','Github','Scripts','Powershell.'],es:{desc:'Scrips personalizables para creacion de Dominio de Windows Server Core.'},en:{desc:'Customizable windows Server core scripts.'}},
-      {name:'Gcloud-Scripts',repo:'https://github.com/S4M73l09/Gcloud-Script',demo:'',status:'wip',stack:['Windows','Linux','bash','devops','automaton','cloud','Script','powershell','terraform','google-cloud','gcloud','powershell-script','infraestructure-as-a-code.'],es:{desc:'Script interactivo de bash y Powershell, para crear backend y despliegue de maquinas virtuales con menu interactivo.'},es:{desc:'About Interactive Bash and Powershell script to create a full Terraform backend and deploy VMs in Google Cloud.'}}
+      {name:'Gcloud-Scripts',repo:'https://github.com/S4M73l09/Gcloud-Script',demo:'',status:'wip',stack:['Windows','Linux','bash','devops','automaton','cloud','Script','powershell','terraform','google-cloud','gcloud','powershell-script','infraestructure-as-a-code.'],es:{desc:'Script interactivo de bash y Powershell, para crear backend y despliegue de maquinas virtuales con menu interactivo.'},en:{desc:'About Interactive Bash and Powershell script to create a full Terraform backend and deploy VMs in Google Cloud.'}}
     ];
 
     // Proyectos especiales (GCS) — NUEVO
@@ -164,8 +163,8 @@
         name:'GCS Infra Live',
         repo:'https://github.com/S4M73l09/GCS-Infra-Live',
         demo:'',
-        status:'wip',
-        stack:['Terraform','Ansible','Docker','GCP','Monitoring'],
+        status:['done','expansion'],
+        stack:['Terraform','Ansible','Docker','GCP','Monitoring','Stack Prometheus','Branch Staging'],
         es:{desc:'Infraestructura Live en GCP: VMs, red, OS Login + IAP y despliegue con Ansible de Prometheus, Grafana, Alertmanager y web estática.'},
         en:{desc:'Live infrastructure on GCP: VMs, networking, OS Login + IAP and Ansible deployment for Prometheus, Grafana, Alertmanager and static website.'}
       }
@@ -175,8 +174,8 @@
     const state={lang:(new URLSearchParams(location.search).get('lang')||localStorage.getItem('lang')||'es').toLowerCase(),section:(new URLSearchParams(location.search).get('section')||'overview').toLowerCase()};
 
     // Utilidades
-    const setLang=lang=>{state.lang=lang;document.documentElement.lang=lang==='en'?'en':'es';localStorage.setItem('lang',lang);$('#chip-es').classList.toggle('active',lang==='es');$('#chip-en').classList.toggle('active',lang==='en');$('#chip-es').setAttribute('aria-pressed',lang==='es');$('#chip-en').setAttribute('aria-pressed',lang==='en');$('#btn-overview').textContent=S[lang].tabO;$('#btn-services').textContent=S[lang].tabS;$('#drawer-title').textContent=S[lang].projects;renderProjects();}
-    const navTo=section=>{state.section=section==='services'?'services':'overview';$('#content').hidden=state.section!=='overview';$('#services').hidden=state.section!=='services';$('#btn-overview').setAttribute('aria-current',state.section==='overview'?'page':'false');$('#btn-services').setAttribute('aria-current',state.section==='services'?'page':'false');const u=new URL(location.href);u.searchParams.set('section',state.section);u.searchParams.set('lang',state.lang);history.replaceState({},'',u);scrollTo({top:0,behavior:'smooth'});}
+    const setLang=lang=>{state.lang=lang;document.documentElement.lang=lang==='en'?'en':'es';localStorage.setItem('lang',lang);$('#chip-es').classList.toggle('active',lang==='es');$('#chip-en').classList.toggle('active',lang==='en');$('#chip-es').setAttribute('aria-pressed',lang==='es');$('#chip-en').setAttribute('aria-pressed',lang==='en');$('#btn-projects').textContent=`📁 ${S[lang].projects}`;$('#drawer-title').textContent=S[lang].projects;renderProjects();}
+    const navTo=section=>{state.section='overview';$('#content').hidden=false;$('#services').hidden=true;const u=new URL(location.href);u.searchParams.set('section','overview');u.searchParams.set('lang',state.lang);history.replaceState({},'',u);scrollTo({top:0,behavior:'smooth'});}
     const loadMD=(file,into)=>{into.innerHTML='Cargando…';fetch(file,{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('No se pudo cargar '+file);return r.text()}).then(md=>{marked.setOptions({gfm:true,breaks:true});into.innerHTML=marked.parse(md)}).catch(e=>{into.innerHTML='<p style="color:#fca5a5">'+e.message+'</p>'})}
 
     // Render de proyectos + proyectos especiales
@@ -186,6 +185,12 @@
       list.innerHTML='';
 
       // Sección Proyectos (los de siempre)
+      const statusBadge=(status)=>{
+        const label=t[status]||status;
+        const klass=status==='done'?'done':status==='wip'?'wip':status==='expansion'?'expansion':'';
+        return `<span class="badge ${klass}">${label}</span>`;
+      };
+
       if(PROJECTS.length){
         const titleNormal=document.createElement('div');
         titleNormal.className='proj-section-title';
@@ -195,9 +200,8 @@
         PROJECTS.forEach(p=>{
           const el=document.createElement('div');
           el.className='card';
-          const badge=p.status==='done'
-            ?`<span class="badge done">${t.done}</span>`
-            :`<span class="badge wip">${t.wip}</span>`;
+          const statuses=Array.isArray(p.status)?p.status:[p.status];
+          const badge=statuses.map(statusBadge).join(' ');
           const stack=p.stack.map(s=>`<span class="badge" style="background:rgba(255,255,255,.06)">${s}</span>`).join(' ');
           const repo=p.repo?`<a class="link" href="${p.repo}" target="_blank" rel="noopener">${t.repo}</a>`:'';
           const demo=p.demo?`<a class="link" href="${p.demo}" target="_blank" rel="noopener">${t.demo}</a>`:'';
@@ -216,9 +220,8 @@
         SPECIAL_PROJECTS.forEach(p=>{
           const el=document.createElement('div');
           el.className='card';
-          const badge=p.status==='done'
-            ?`<span class="badge done">${t.done}</span>`
-            :`<span class="badge wip">${t.wip}</span>`;
+          const statuses=Array.isArray(p.status)?p.status:[p.status];
+          const badge=statuses.map(statusBadge).join(' ');
           const stack=p.stack.map(s=>`<span class="badge" style="background:rgba(255,255,255,.06)">${s}</span>`).join(' ');
           const repo=p.repo?`<a class="link" href="${p.repo}" target="_blank" rel="noopener">${t.repo}</a>`:'';
           const demo=p.demo?`<a class="link" href="${p.demo}" target="_blank" rel="noopener">${t.demo}</a>`:'';
@@ -234,21 +237,21 @@
 
     // Eventos
     $('#btn-projects').onclick=openDrawer;$('#btn-close').onclick=closeDrawer;$('#backdrop').onclick=closeDrawer;addEventListener('keydown',e=>{if(e.key==='Escape')closeDrawer()});
-    $('#btn-overview').onclick=()=>navTo('overview');$('#btn-services').onclick=()=>navTo('services');
-    $('#chip-es').onclick=()=>{setLang('es');loadMD('README.md',$('#content'));loadMD('SERVICES.md',$('#services'))}
-    $('#chip-en').onclick=()=>{setLang('en');loadMD('README.en.md',$('#content'));loadMD('SERVICES.en.md',$('#services'))}
+    $('#chip-es').onclick=()=>{setLang('es');loadMD('README.md',$('#content'))}
+    $('#chip-en').onclick=()=>{setLang('en');loadMD('README.en.md',$('#content'))}
 
     // Inicio
     setLang(state.lang);
     loadMD(state.lang==='en'?'README.en.md':'README.md',$('#content'));
-    loadMD(state.lang==='en'?'SERVICES.en.md':'SERVICES.md',$('#services'));
     navTo(state.section);
   </script>
 
   <!-- Upwork safe-mode: ?upwork=1 oculta contacto -->
   <script>(()=>{try{const q=new URLSearchParams(location.search);if(q.get('upwork')!=='1')return;document.querySelectorAll('#gmail-btn,#mailto-btn,#linkedin-btn,a[href^="mailto:"],a[href*="linkedin.com"],a[href*="malt."],[data-contact],.contact').forEach(el=>el.remove())}catch(e){}})();</script>
 
-  <script src="assets/bot/ai-bot.js"></script>
+  <script src="assets/bot/knowledge.js"></script>
+  <script type="module" src="assets/bot/ai-bot.js"></script>
+
 
 </body>
 </html>

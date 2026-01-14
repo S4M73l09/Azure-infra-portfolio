@@ -12,15 +12,7 @@ Aprendí montando y rompiendo en labs y proyectos reales; hoy trabajo para que l
 
 ### 🧰 Tecnologías principales
 
-![Terraform](https://img.shields.io/badge/IaC-Terraform-5C4EE5)  
-![Ansible](https://img.shields.io/badge/Automation-Ansible-EE0000)  
-![Azure](https://img.shields.io/badge/Cloud-Azure-0078D4)  
-![GCP](https://img.shields.io/badge/Cloud-Google_Cloud-4285F4)  
-![Docker](https://img.shields.io/badge/Container-Docker-2496ED)  
-![CI/CD](https://img.shields.io/badge/Pipeline-CI%2FCD-2088FF)  
-![GitHub Actions](https://img.shields.io/badge/Automation-GitHub_Actions-2088FF)  
-![Grafana](https://img.shields.io/badge/Monitoring-Grafana-F46800)  
-![Prometheus](https://img.shields.io/badge/Metrics-Prometheus-E6522C)  
+![Terraform](https://img.shields.io/badge/IaC-Terraform-5C4EE5) ![Ansible](https://img.shields.io/badge/Automation-Ansible-EE0000) ![Azure](https://img.shields.io/badge/Cloud-Azure-0078D4) ![GCP](https://img.shields.io/badge/Cloud-Google_Cloud-4285F4) ![Docker](https://img.shields.io/badge/Container-Docker-2496ED) ![CI/CD](https://img.shields.io/badge/Pipeline-CI%2FCD-2088FF) ![GitHub Actions](https://img.shields.io/badge/Automation-GitHub_Actions-2088FF) ![Grafana](https://img.shields.io/badge/Monitoring-Grafana-F46800) ![Prometheus](https://img.shields.io/badge/Metrics-Prometheus-E6522C)
 
 ---
 
@@ -64,7 +56,7 @@ Aprendí montando y rompiendo en labs y proyectos reales; hoy trabajo para que l
 **Stack:** Powershell · Bash · GCloud · Scripts · terraform · Linux · Automation · DevOps  
 **Código:** [Repositorio](https://github.com/S4M73l09/Gcloud-Script)  
 
-# Proyectos especiales o complejos.
+# Laboratorio de infraestructura.
 
 ## Bootstrap/Infra-Live en GCS
 
@@ -96,6 +88,3 @@ Aprendí montando y rompiendo en labs y proyectos reales; hoy trabajo para que l
 | Mantenimiento operativo | Complejo, manual | Simplificado | Entornos más ágiles y fáciles de mantener |
 
 ---
-
-💼 **¿Quieres ver mis servicios?**  
-➡️ [Ir a servicios](?section=services)

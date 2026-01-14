@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Embeddings</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: #f0f2f5; color: #1c1e21; padding: 20px; line-height: 1.6; }
+        #container { max-width: 900px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        button { background-color: #1877f2; color: white; border: none; padding: 12px 20px; font-size: 16px; border-radius: 6px; cursor: pointer; transition: background-color 0.3s; }
+        button:hover { background-color: #166fe5; }
+        button:disabled { background-color: #a0a0a0; cursor: not-allowed; }
+        pre { background-color: #f5f5f5; padding: 15px; border-radius: 4px; white-space: pre-wrap; word-wrap: break-word; border: 1px solid #ddd; max-height: 400px; overflow-y: auto; }
+        #status { margin-top: 15px; font-weight: bold; }
+        .error { color: #d93025; }
+        .success { color: #1e8e3e; }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Generador de Embeddings para el Portfolio</h1>
+        <p>Esta herramienta leerá la información de tus proyectos desde <code>/assets/bot/knowledge.js</code>, buscará el contenido de los READMEs en GitHub y generará un archivo <code>embeddings.json</code>.</p>
+        <p><strong>Instrucciones:</strong></p>
+        <ol>
+            <li>Abre la consola de desarrollador de tu navegador (F12) para ver el progreso detallado.</li>
+            <li>Haz clic en el botón "Generar Embeddings".</li>
+            <li>Espera a que el proceso termine. Puede tardar uno o dos minutos.</li>
+            <li>Cuando termine, haz clic en el botón "Descargar JSON" que aparecerá.</li>
+            <li>Guarda el archivo en la ruta <code>assets/bot/embeddings.json</code>, reemplazando el existente si es necesario.</li>
+        </ol>
+        <button id="generate-btn">Generar Embeddings</button>
+        <button id="download-btn" style="display: none; margin-left: 10px; background-color: #1e8e3e;">Descargar JSON</button>
+        <div id="status">Estado: Esperando para empezar...</div>
+        <pre id="output">El resultado JSON aparecerá aquí...</pre>
+    </div>
+
+    <!-- Carga la base de conocimiento -->
+    <script src="/assets/bot/knowledge.js"></script>
+
+    <!-- Carga la librería de Transformers.js desde una CDN como módulo -->
+    <script type="module">
+        // Importa la función 'pipeline' desde la librería.
+        import { pipeline } from 'https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.1';
+
+        const generateBtn = document.getElementById('generate-btn');
+        const downloadBtn = document.getElementById('download-btn');
+        const statusDiv = document.getElementById('status');
+        const outputDiv = document.getElementById('output');
+
+        // Función para usar un proxy y evitar problemas de CORS
+        function fetchWithProxy(url) {
+            // Usamos un proxy público. Considera alojar el tuyo si tienes problemas de fiabilidad.
+            return fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`);
+        }
+        
+        downloadBtn.addEventListener('click', () => {
+            const jsonString = outputDiv.textContent;
+            if (jsonString.length < 10) return;
+
+            try {
+                const blob = new Blob([jsonString], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'embeddings.json';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+
+                statusDiv.textContent = 'Estado: ¡Archivo JSON descargado! Ahora muévelo a la carpeta assets/bot/.';
+
+            } catch (err) {
+                console.error('Error al descargar:', err);
+                statusDiv.textContent = 'Estado: Error al crear el archivo para descargar.';
+            }
+        });
+
+        generateBtn.addEventListener('click', async () => {
+            try {
+                generateBtn.disabled = true;
+                downloadBtn.style.display = 'none';
+                outputDiv.textContent = 'El resultado JSON aparecerá aquí...';
+                statusDiv.className = '';
+                statusDiv.textContent = 'Estado: Inicializando el modelo de embeddings...';
+                console.log('Inicializando pipeline...');
+
+                // 1. Inicializar el modelo de IA
+                const extractor = await pipeline('feature-extraction', 'Xenova/all-MiniLM-L6-v2', {
+                    progress_callback: (progress) => {
+                        statusDiv.textContent = `Estado: Descargando modelo... (${Math.round(progress.progress)}%)`;
+                        console.log(progress);
+                    }
+                });
+
+                statusDiv.textContent = 'Estado: Modelo cargado. Recopilando textos...';
+                console.log('Modelo cargado.');
+
+                const textsToProcess = [];
+
+                // 2. Procesar la Base de Conocimiento (AI_KB)
+                for (const entry of AI_KB) {
+                    // Para cada proyecto, añadimos sus diferentes textos como documentos separados
+                    if(entry.summary_es) textsToProcess.push({ text: `Resumen del proyecto ${entry.repo}: ${entry.summary_es}`, source: 'kb-summary', repo: entry.repo, lang: 'es' });
+                    if(entry.summary_en) textsToProcess.push({ text: `Summary for project ${entry.repo}: ${entry.summary_en}`, source: 'kb-summary', repo: entry.repo, lang: 'en' });
+                    if(entry.deploy_es) textsToProcess.push({ text: `Despliegue del proyecto ${entry.repo}: ${entry.deploy_es}`, source: 'kb-deploy', repo: entry.repo, lang: 'es' });
+                    if(entry.deploy_en) textsToProcess.push({ text: `Deployment for project ${entry.repo}: ${entry.deploy_en}`, source: 'kb-deploy', repo: entry.repo, lang: 'en' });
+                    if(entry.monitor_es) textsToProcess.push({ text: `Monitorización del proyecto ${entry.repo}: ${entry.monitor_es}`, source: 'kb-monitor', repo: entry.repo, lang: 'es' });
+                    if(entry.monitor_en) textsToProcess.push({ text: `Monitoring for project ${entry.repo}: ${entry.monitor_en}`, source: 'kb-monitor', repo: entry.repo, lang: 'en' });
+                    if(entry.stack_es) textsToProcess.push({ text: `Stack tecnológico del proyecto ${entry.repo}: ${entry.stack_es}`, source: 'kb-stack', repo: entry.repo, lang: 'es' });
+                    if(entry.stack_en) textsToProcess.push({ text: `Tech stack for project ${entry.repo}: ${entry.stack_en}`, source: 'kb-stack', repo: entry.repo, lang: 'en' });
+                }
+                console.log(`Recopilados ${textsToProcess.length} textos desde AI_KB.`);
+
+                // 3. Procesar los READMEs (AI_DOC_SOURCES)
+                statusDiv.textContent = 'Estado: Descargando READMEs desde GitHub...';
+                let readmeCount = 0;
+                for (const src of AI_DOC_SOURCES) {
+                    try {
+                        const res = await fetchWithProxy(src.url);
+                        if (!res.ok) {
+                            console.warn(`No se pudo cargar README de ${src.url} (status: ${res.status})`);
+                            continue;
+                        }
+                        const text = await res.text();
+                        // Dividir por párrafos (dos o más saltos de línea)
+                        const chunks = text.split(/\n\s*\n+/);
+                        chunks.forEach((chunk) => {
+                            const cleanChunk = chunk.trim().replace(/\n/g, ' ');
+                            // Añadimos solo párrafos con contenido sustancial
+                            if (cleanChunk.length > 80 && !cleanChunk.startsWith('#')) {
+                                textsToProcess.push({
+                                    text: cleanChunk,
+                                    source: 'readme',
+                                    repo: src.repo,
+                                    lang: src.lang
+                                });
+                            }
+                        });
+                        readmeCount++;
+                        console.log(`Procesado README de ${src.url}`);
+                    } catch (e) {
+                        console.error(`Error cargando README de ${src.url}:`, e);
+                    }
+                }
+                statusDiv.textContent = `Estado: ${readmeCount} READMEs procesados. Total de ${textsToProcess.length} fragmentos de texto.`;
+                console.log(`Total de textos a procesar: ${textsToProcess.length}`);
+
+                // 4. Generar Embeddings para todos los textos
+                statusDiv.textContent = `Estado: Generando embeddings para ${textsToProcess.length} fragmentos... (esto puede tardar)`;
+                const finalEmbeddings = [];
+                for (let i = 0; i < textsToProcess.length; i++) {
+                    const item = textsToProcess[i];
+                    const embedding = await extractor(item.text, { pooling: 'mean', normalize: true });
+                    
+                    finalEmbeddings.push({
+                        text: item.text,
+                        source: item.source,
+                        repo: item.repo,
+                        lang: item.lang,
+                        embedding: Array.from(embedding.data) // Convertir Float32Array a un array normal para JSON
+                    });
+
+                    const progress = Math.round(((i + 1) / textsToProcess.length) * 100);
+                    statusDiv.textContent = `Estado: Generando embeddings... (${progress}%)`;
+                    if (i % 10 === 0) {
+                        console.log(`Progreso de embeddings: ${progress}%`);
+                    }
+                }
+
+                statusDiv.className = 'success';
+                statusDiv.textContent = 'Estado: ¡Completado! Haz clic en "Descargar JSON" y guarda el archivo en /assets/bot/embeddings.json';
+                outputDiv.textContent = JSON.stringify(finalEmbeddings, null, 2);
+                downloadBtn.style.display = 'inline-block';
+                console.log('Generación de embeddings completada.');
+
+            } catch (error) {
+                statusDiv.className = 'error';
+                statusDiv.textContent = `Estado: Error - ${error.message}`;
+                outputDiv.textContent = `Ocurrió un error. Revisa la consola de desarrollador para más detalles.\n\n${error.stack}`;
+                console.error(error);
+            } finally {
+                generateBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
